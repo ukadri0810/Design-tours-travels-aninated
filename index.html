@@ -1,1076 +1,304 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Design Tours and Travels | Tours, Packages, Haj & Umrah</title>
-    <meta
-      name="description"
-      content="Design Tours and Travels in Mumbra provides domestic tours, international packages, flight booking, hotel booking, visa assistance, and dedicated Haj & Umrah travel support."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&family=Amiri:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body class="tours-mode">
-    <div class="loader" id="loader">
-      <div class="loader-card travel-loader-card">
-        <div class="loader-logo clean-loader-logo">
-          <img
-            src="assets/logo.png"
-            alt="Design Tours and Travels Logo"
-            onerror="
-              this.style.display = 'none';
-              this.nextElementSibling.style.display = 'grid';
-            "
-          />
-          <div class="dt-fallback" style="display: none">DT</div>
-        </div>
-        <p class="loader-caption">Preparing your travel experience</p>
-        <div class="plane-loader-line" aria-hidden="true">
-          <span class="plane-loader-track"></span>
-          <svg
-            class="plane-loader-svg aircraft-loader-svg"
-            viewBox="0 0 64 64"
-            aria-hidden="true"
-          >
-            <path
-              class="aircraft-body"
-              d="M61.4 29.4c-1.6-1.2-4.3-1.8-8.2-1.8H41.4L24.2 11.6c-.8-.7-1.8-1.1-2.9-1.1h-5c-.8 0-1.3.9-.9 1.6l9.3 15.5H13.2l-5.1-4.9c-.5-.5-1.2-.8-2-.8H3.3c-.8 0-1.3.8-1 1.5L5.4 32l-3.1 8.6c-.3.7.2 1.5 1 1.5h2.8c.8 0 1.5-.3 2-.8l5.1-4.9h11.5l-9.3 15.5c-.4.7.1 1.6.9 1.6h5c1.1 0 2.1-.4 2.9-1.1l17.2-16h11.8c3.9 0 6.6-.6 8.2-1.8 1.8-1.4 1.8-4.4 0-5.8Z"
-            />
-            <path class="aircraft-window" d="M47.5 29.8h5.5c1.8 0 3.1.2 4 .7" />
-          </svg>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design Tours and Travels | Tours, Packages, Haj & Umrah</title>
+  <meta name="description" content="Design Tours and Travels in Mumbra provides domestic tours, international packages, flight booking, hotel booking, visa assistance, and dedicated Haj & Umrah travel support." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="tours-mode">
+  <div class="loader" id="loader" aria-label="Loading website">
+    <div class="loader-card">
+      <img class="loader-logo" src="assets/logo.png" alt="Design Tours and Travels Logo" />
+      <p>Preparing your travel experience</p>
+
+      <div class="plane-loader-line" aria-hidden="true">
+        <span class="plane-loader-track"></span>
+        <svg class="aircraft-loader-svg" viewBox="0 0 64 64" aria-hidden="true">
+          <path class="aircraft-body" d="M61.4 29.4c-1.6-1.2-4.3-1.8-8.2-1.8H41.4L24.2 11.6c-.8-.7-1.8-1.1-2.9-1.1h-5c-.8 0-1.3.9-.9 1.6l9.3 15.5H13.2l-5.1-4.9c-.5-.5-1.2-.8-2-.8H3.3c-.8 0-1.3.8-1 1.5L5.4 32l-3.1 8.6c-.3.7.2 1.5 1 1.5h2.8c.8 0 1.5-.3 2-.8l5.1-4.9h11.5l-9.3 15.5c-.4.7.1 1.6.9 1.6h5c1.1 0 2.1-.4 2.9-1.1l17.2-16h11.8c3.9 0 6.6-.6 8.2-1.8 1.8-1.4 1.8-4.4 0-5.8Z" />
+          <path class="aircraft-window" d="M47.5 29.8h5.5c1.8 0 3.1.2 4 .7" />
+        </svg>
       </div>
     </div>
-    <header>
-      <div class="container">
-        <div class="header-inner">
-          <a href="#home" class="brand">
-            <div class="brand-logo">
-              <img
-                src="assets/logo.png"
-                alt="Design Tours and Travels Logo"
-                onerror="
-                  this.style.display = 'none';
-                  this.nextElementSibling.style.display = 'grid';
-                "
-              />
-              <div class="dt-fallback" style="display: none">DT</div>
-            </div>
-            <div class="brand-text">
-              <strong>Design Tours and Travels</strong
-              ><span>Tours | Flights | Hotels | Visa</span>
-            </div></a
-          >
-          <div class="mode-switch" aria-label="Website mode switch">
-            <button class="switch-btn tours active" data-mode="tours">
-              Tours & Travels</button
-            ><button class="switch-btn haj" data-mode="haj">Haj & Umrah</button>
-          </div>
-          <div class="nav-actions">
-            <a class="btn btn-primary" href="tel:+919405893383">Call Now</a
-            ><a
-              class="btn btn-wa"
-              target="_blank"
-              href="https://wa.me/919405893383?text=Hello%2C%20I%20want%20to%20enquire%20about%20travel%20packages"
-              >WhatsApp</a
-            ><button
-              class="mobile-toggle"
-              id="mobileBtn"
-              aria-label="Open Menu"
-            >
-              <span></span><span></span><span></span>
-            </button>
-          </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="#home" class="brand" aria-label="Design Tours and Travels Home">
+          <img src="assets/logo.png" alt="Design Tours and Travels Logo" />
+        </a>
+
+        <div class="mode-switch" aria-label="Website mode switch">
+          <button class="switch-btn tours active" data-mode="tours" type="button">Tours & Travels</button>
+          <button class="switch-btn haj" data-mode="haj" type="button">Haj & Umrah</button>
         </div>
-        <div class="mobile-menu hidden" id="mobileMenu">
-          <a href="#services">Services</a><a href="#packages">Packages</a
-          ><a href="#contact">Contact</a
-          ><button data-mode="tours">Tours & Travels</button
-          ><button data-mode="haj">Haj & Umrah</button>
+
+        <div class="header-actions">
+          <a class="btn btn-primary" href="tel:+919405893383">Call Now</a>
+          <a class="btn btn-whatsapp" target="_blank" href="https://wa.me/919405893383?text=Hello%2C%20I%20want%20to%20enquire%20about%20travel%20packages">WhatsApp</a>
+          <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
         </div>
       </div>
-    </header>
 
-    <main>
-      <section class="mode-panel active" id="toursPanel">
-        <section class="tours-hero" id="home">
-          <div class="flight-path">
-            <span
-              ><svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M3 11.5 21 4l-7.5 17-3-7-7.5-2.5Z" />
-                <path d="M10.5 14 21 4" /></svg
-            ></span>
-          </div>
-          <div class="container">
-            <div class="hero-grid">
-              <div class="hero-content reveal">
-                <div class="hero-badge">Mumbra | Thane | Maharashtra</div>
-                <h1>We Design Your <span>Safe & Beautiful</span> Travel</h1>
-                <p>
-                  Your trusted travel partner for flights, holidays, visa
-                  assistance and customised domestic & international tour
-                  packages — serving Mumbra and Thane with care.
-                </p>
-                <div class="hero-buttons">
-                  <a class="btn btn-gold" href="#contact">Get Free Quote</a
-                  ><a class="btn btn-white" href="#packages"
-                    >View Tour Packages</a
-                  ><button class="btn btn-outline hero-haj-btn" data-mode="haj">
-                    Umrah & Haj Packages
-                  </button>
-                </div>
-              </div>
-              <div class="hero-mini-card reveal">
-                <h3>Quick Trip Enquiry</h3>
-                <div class="trip-row">
-                  <input
-                    placeholder="Destination e.g. Dubai, Kashmir"
-                  /><select>
-                    <option>Travel Type</option>
-                    <option>Domestic Tour</option>
-                    <option>International Tour</option>
-                    <option>Family Package</option>
-                    <option>Group Tour</option></select
-                  ><input placeholder="No. of Travellers" /><a
-                    class="btn btn-gold"
-                    target="_blank"
-                    href="https://wa.me/919405893383?text=Hello%2C%20I%20want%20package%20details"
-                    >Get Package Details</a
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="stat-row reveal">
-              <div class="stat">
-                <strong>500+</strong><span>Happy Travellers</span>
-              </div>
-              <div class="stat">
-                <strong>10+</strong><span>Years Experience</span>
-              </div>
-              <div class="stat">
-                <strong>4.8</strong><span>Google Rating</span>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section class="trust">
-          <div class="container">
-            <div class="trust-grid">
-              <div class="trust-item">
-                <div class="icon-box">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M4 18V6l5-2 6 2 5-2v12l-5 2-6-2-5 2Z" />
-                    <path d="M9 4v12" />
-                    <path d="M15 6v12" />
-                  </svg>
-                </div>
-                <div>
-                  <strong>Tour Planning</strong
-                  ><span>Domestic & international packages</span>
-                </div>
-              </div>
-              <div class="trust-item">
-                <div class="icon-box">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M3 11.5 21 4l-7.5 17-3-7-7.5-2.5Z" />
-                    <path d="M10.5 14 21 4" />
-                  </svg>
-                </div>
-                <div>
-                  <strong>Flights & Hotels</strong><span>Booking support</span>
-                </div>
-              </div>
-              <div class="trust-item">
-                <div class="icon-box">
-                  <svg viewBox="0 0 24 24">
-                    <rect x="6" y="3" width="12" height="18" rx="2" />
-                    <path d="M9 8h6" />
-                    <path d="M9 13h6" />
-                    <path d="M9 17h4" />
-                  </svg>
-                </div>
-                <div>
-                  <strong>Visa Assistance</strong><span>Document guidance</span>
-                </div>
-              </div>
-              <div class="trust-item">
-                <div class="icon-box">
-                  <svg viewBox="0 0 24 24">
-                    <path
-                      d="M12 21s7-5.2 7-12a7 7 0 0 0-14 0c0 6.8 7 12 7 12Z"
-                    />
-                    <circle cx="12" cy="9" r="2.5" />
-                  </svg>
-                </div>
-                <div>
-                  <strong>Mumbra Based</strong
-                  ><span>Local travel assistance</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section class="section packages" id="packages">
-          <div class="container">
-            <div class="packages-head reveal">
-              <div>
-                <div class="section-label">Popular Tour Packages</div>
-                <h2 class="section-title">
-                  Destinations & Common Sightseeing Places
-                </h2>
-                <p class="section-sub">
-                  Swipe through popular domestic and international destinations.
-                  Final itinerary may change based on package, date, hotel,
-                  flight timing and customer requirement.
-                </p>
-              </div>
-              <div class="filter-row">
-                <button class="filter-btn active" data-filter="all">All</button
-                ><button class="filter-btn" data-filter="international">
-                  International</button
-                ><button class="filter-btn" data-filter="domestic">
-                  Domestic
-                </button>
-              </div>
-            </div>
-            <div class="package-slider reveal" id="packageSlider"></div>
-          </div>
-        </section>
-        <section class="section services" id="services">
-          <div class="container">
-            <div class="reveal">
-              <div class="section-label">Our Services</div>
-              <h2 class="section-title">Complete Travel Support</h2>
-              <p class="section-sub">
-                Focused on tours and travel services. Haj & Umrah has a separate
-                premium section using the toggle above.
-              </p>
-            </div>
-            <div class="services-grid reveal">
-              <div class="service-card">
-                <div class="icon-box">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M4 18V6l5-2 6 2 5-2v12l-5 2-6-2-5 2Z" />
-                    <path d="M9 4v12" />
-                    <path d="M15 6v12" />
-                  </svg>
-                </div>
-                <h3>Domestic Tours</h3>
-                <p>
-                  India packages including Kashmir, Kerala, Goa, Manali,
-                  Rajasthan and more.
-                </p>
-              </div>
-              <div class="service-card">
-                <div class="icon-box">
-                  <svg viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="9" />
-                    <path d="M3 12h18" />
-                    <path d="M12 3c2.4 2.5 3.6 5.5 3.6 9S14.4 18.5 12 21" />
-                    <path d="M12 3c-2.4 2.5-3.6 5.5-3.6 9s1.2 6.5 3.6 9" />
-                  </svg>
-                </div>
-                <h3>International Tours</h3>
-                <p>
-                  Dubai, Singapore, Turkey, Malaysia, Europe, Thailand and more.
-                </p>
-              </div>
-              <div class="service-card">
-                <div class="icon-box">
-                  <svg viewBox="0 0 24 24">
-                    <rect x="6" y="7" width="12" height="13" rx="2" />
-                    <path
-                      d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"
-                    />
-                  </svg>
-                </div>
-                <h3>Holiday Packages</h3>
-                <p>
-                  Fully customised domestic & international packages for
-                  families, honeymoons and groups. Hotels, transport and tours
-                  can be included.
-                </p>
-              </div>
-              <div class="service-card">
-                <div class="icon-box">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M3 11.5 21 4l-7.5 17-3-7-7.5-2.5Z" />
-                    <path d="M10.5 14 21 4" />
-                  </svg>
-                </div>
-                <h3>Flight Booking</h3>
-                <p>Domestic and international flight booking assistance.</p>
-              </div>
-              <div class="service-card">
-                <div class="icon-box">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M4 20V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v14" />
-                    <path d="M16 10h2a2 2 0 0 1 2 2v8" />
-                    <path d="M4 20h16" />
-                  </svg>
-                </div>
-                <h3>Hotel Booking</h3>
-                <p>
-                  Hotel support based on comfort, location, family needs and
-                  budget.
-                </p>
-              </div>
-              <div class="service-card">
-                <div class="icon-box">
-                  <svg viewBox="0 0 24 24">
-                    <rect x="6" y="3" width="12" height="18" rx="2" />
-                    <path d="M9 8h6" />
-                    <path d="M9 13h6" />
-                    <path d="M9 17h4" />
-                  </svg>
-                </div>
-                <h3>Visa Assistance</h3>
-                <p>
-                  End-to-end visa support for UAE, Saudi Arabia, Europe, UK,
-                  USA, Malaysia and other destinations with document guidance.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section class="section">
-          <div class="container">
-            <div class="reveal">
-              <div class="section-label">How It Works</div>
-              <h2 class="section-title">Simple Planning Process</h2>
-            </div>
-            <div class="how-grid reveal">
-              <div class="step-card">
-                <div class="step-no">1</div>
-                <h3>Share Destination</h3>
-                <p>
-                  Tell us your destination, travel date and number of
-                  travellers.
-                </p>
-              </div>
-              <div class="step-card">
-                <div class="step-no">2</div>
-                <h3>Get Package Options</h3>
-                <p>
-                  We suggest package details based on your travel requirement.
-                </p>
-              </div>
-              <div class="step-card">
-                <div class="step-no">3</div>
-                <h3>Confirm & Travel</h3>
-                <p>
-                  Get support for flights, hotels, visa and travel planning.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+      <nav class="mobile-menu hidden" id="mobileMenu">
+        <a href="#services">Services</a>
+        <a href="#packages">Packages</a>
+        <a href="#contact">Contact</a>
+        <button data-mode="tours" type="button">Tours & Travels</button>
+        <button data-mode="haj" type="button">Haj & Umrah</button>
+      </nav>
+    </div>
+  </header>
 
-        <section class="section why-section" id="why-choose">
-          <div class="container">
-            <div class="reveal">
-              <div class="section-label">Why Choose Us</div>
-              <h2 class="section-title">
-                Why Travellers Choose Design Tours and Travels
-              </h2>
-              <p class="section-sub">
-                A trusted local travel partner from Mumbra for customised
-                domestic and international packages, flight booking, hotel
-                booking and visa assistance.
-              </p>
-            </div>
-            <div class="why-grid reveal">
-              <div class="why-card">
-                <div class="icon-box">
-                  <svg viewBox="0 0 24 24">
-                    <path
-                      d="M12 21s7-5.2 7-12a7 7 0 0 0-14 0c0 6.8 7 12 7 12Z"
-                    />
-                    <circle cx="12" cy="9" r="2.5" />
-                  </svg>
-                </div>
-                <h3>Mumbra Based Agency</h3>
-                <p>
-                  Local assistance for customers from Mumbra, Thane and nearby
-                  areas with easy call, WhatsApp and map access.
-                </p>
-              </div>
-              <div class="why-card">
-                <div class="icon-box">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M4 18V6l5-2 6 2 5-2v12l-5 2-6-2-5 2Z" />
-                    <path d="M9 4v12" />
-                    <path d="M15 6v12" />
-                  </svg>
-                </div>
-                <h3>Custom Tour Planning</h3>
-                <p>
-                  Packages are planned according to destination, travel dates,
-                  hotel preference, budget and number of travellers.
-                </p>
-              </div>
-              <div class="why-card">
-                <div class="icon-box">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M3 11.5 21 4l-7.5 17-3-7-7.5-2.5Z" />
-                    <path d="M10.5 14 21 4" />
-                  </svg>
-                </div>
-                <h3>Flights, Hotels & Visa</h3>
-                <p>
-                  Support for flight booking, hotel arrangements and
-                  visa/document guidance under one travel service.
-                </p>
-              </div>
-              <div class="why-card">
-                <div class="icon-box">
-                  <svg viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="9" />
-                    <path d="M3 12h18" />
-                    <path d="M12 3c2.4 2.5 3.6 5.5 3.6 9S14.4 18.5 12 21" />
-                    <path d="M12 3c-2.4 2.5-3.6 5.5-3.6 9s1.2 6.5 3.6 9" />
-                  </svg>
-                </div>
-                <h3>Domestic & International</h3>
-                <p>
-                  Popular packages for Dubai, Singapore, Malaysia, Europe,
-                  Kashmir, Kerala, Goa, Manali and more.
-                </p>
-              </div>
-              <div class="why-card">
-                <div class="icon-box">
-                  <svg viewBox="0 0 24 24">
-                    <rect x="6" y="7" width="12" height="13" rx="2" />
-                    <path
-                      d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"
-                    />
-                  </svg>
-                </div>
-                <h3>Family & Group Packages</h3>
-                <p>
-                  Travel support for families, couples, groups and business
-                  travellers with flexible package options.
-                </p>
-              </div>
-              <div class="why-card">
-                <div class="icon-box">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M5 9 12 5l7 4v10H5V9Z" />
-                    <path d="M5 10h14" />
-                    <path d="M8 13h8" />
-                    <path d="M9 19v-4h6v4" />
-                  </svg>
-                </div>
-                <h3>Haj & Umrah Guidance</h3>
-                <p>
-                  A separate premium Haj & Umrah experience is available for
-                  visa, hotel, flight and ziyarat-related assistance.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </section>
-
-      <section class="mode-panel" id="hajPanel">
-        <div class="haj-shell">
-          <section class="haj-hero">
-            <div class="lantern one"></div>
-            <div class="lantern two"></div>
-            <div class="kaaba-mark"></div>
-            <div class="container">
-              <div class="haj-content reveal">
-                <div class="haj-badge">Sacred Journey | Trusted Guidance</div>
-                <div class="arabic-line">لَبَّيْكَ اللَّهُمَّ لَبَّيْك</div>
-                <h1>Answer the Call of Allah’s Sacred Houses</h1>
-                <p>
-                  Let us take care of everything — from visa to flight to hotel
-                  — so you can focus on ibaadat and the spiritual experience of
-                  a lifetime.
-                </p>
-                <div class="haj-buttons">
-                  <a class="btn btn-gold" href="#haj-packages"
-                    >View Umrah Packages</a
-                  >
-                  <a
-                    class="btn btn-wa"
-                    target="_blank"
-                    href="https://wa.me/919405893383?text=Assalamualaikum%2C%20I%20want%20Haj%20or%20Umrah%20package%20details"
-                    >WhatsApp Enquiry</a
-                  >
-                </div>
-                <div class="scroll-cue">
-                  SCROLL
-                  <span aria-hidden="true"
-                    ><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg
-                  ></span>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="haj-section" id="haj-packages">
-            <div class="container">
-              <div class="reveal section-centered">
-                <div class="section-label">Choose Your Journey</div>
-                <h2 class="section-title">Umrah & Haj Travel Packages</h2>
-                <p class="section-sub">
-                  Flexible options for individuals, families and groups. Final
-                  pricing depends on travel dates, flight availability, hotel
-                  category and room sharing.
-                </p>
-              </div>
-              <div class="haj-grid package-style reveal">
-                <div class="haj-card featured">
-                  <div class="haj-icon kaaba-icon">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M5 9 12 5l7 4v10H5V9Z" />
-                      <path d="M5 10h14" />
-                      <path d="M8 13h8" />
-                      <path d="M9 19v-4h6v4" />
-                    </svg>
-                  </div>
-                  <h3>Economy Umrah</h3>
-                  <p>
-                    Ideal for budget-focused travellers with essential travel
-                    assistance.
-                  </p>
-                  <span class="haj-price">Contact for Price</span>
-                  <ul class="mini-list">
-                    <li>Flight options</li>
-                    <li>Hotel arrangement</li>
-                    <li>Visa guidance</li>
-                    <li>Ziyarat assistance</li>
-                  </ul>
-                  <a
-                    class="btn btn-gold"
-                    target="_blank"
-                    href="https://wa.me/919405893383?text=Assalamualaikum%2C%20I%20want%20Economy%20Umrah%20package%20details"
-                    >Enquire Now</a
-                  >
-                </div>
-                <div class="haj-card">
-                  <div class="haj-icon">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path
-                        d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.8 1-6.1-4.4-4.3 6.1-.9L12 3Z"
-                      />
-                    </svg>
-                  </div>
-                  <h3>Premium Umrah</h3>
-                  <p>
-                    Comfort stay, better hotel category and guided package
-                    support.
-                  </p>
-                  <span class="haj-price">Contact for Price</span>
-                  <ul class="mini-list">
-                    <li>Comfort hotel options</li>
-                    <li>Group support</li>
-                    <li>Flight assistance</li>
-                    <li>Complete guidance</li>
-                  </ul>
-                  <a
-                    class="btn btn-gold"
-                    target="_blank"
-                    href="https://wa.me/919405893383?text=Assalamualaikum%2C%20I%20want%20Premium%20Umrah%20package%20details"
-                    >Enquire Now</a
-                  >
-                </div>
-                <div class="haj-card">
-                  <div class="haj-icon">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M5 9 12 5l7 4v10H5V9Z" />
-                      <path d="M8 19v-6h8v6" />
-                      <path d="M5 10h14" />
-                      <path d="M12 5v14" />
-                    </svg>
-                  </div>
-                  <h3>Haj Assistance</h3>
-                  <p>
-                    Guidance for Haj travel planning, documents, flights and
-                    hotel support.
-                  </p>
-                  <span class="haj-price">Contact for Price</span>
-                  <ul class="mini-list">
-                    <li>Package guidance</li>
-                    <li>Documentation help</li>
-                    <li>Travel support</li>
-                    <li>Family/group planning</li>
-                  </ul>
-                  <a
-                    class="btn btn-gold"
-                    target="_blank"
-                    href="https://wa.me/919405893383?text=Assalamualaikum%2C%20I%20want%20Haj%20package%20assistance%20details"
-                    >Enquire Now</a
-                  >
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="haj-section haj-included">
-            <div class="container">
-              <div class="reveal section-centered">
-                <div class="section-label">What’s Included</div>
-                <h2 class="section-title">Complete Travel Assistance</h2>
-                <p class="section-sub">
-                  A clean overview of the support customers usually need for Haj
-                  and Umrah travel.
-                </p>
-              </div>
-              <div class="included-grid reveal">
-                <div class="included-card">
-                  <div class="guide-icon">
-                    <svg viewBox="0 0 24 24">
-                      <rect x="6" y="3" width="12" height="18" rx="2" />
-                      <path d="M9 8h6" />
-                      <path d="M9 13h6" />
-                      <path d="M9 17h4" />
-                    </svg>
-                  </div>
-                  <h3>Visa Guidance</h3>
-                  <p>
-                    Step-by-step guidance for required documents and travel
-                    formalities.
-                  </p>
-                </div>
-                <div class="included-card">
-                  <div class="guide-icon">
-                    <svg viewBox="0 0 24 24">
-                      <path d="M3 11.5 21 4l-7.5 17-3-7-7.5-2.5Z" />
-                      <path d="M10.5 14 21 4" />
-                    </svg>
-                  </div>
-                  <h3>Flight Booking</h3>
-                  <p>
-                    Flight options based on travel dates, availability and
-                    customer preference.
-                  </p>
-                </div>
-                <div class="included-card">
-                  <div class="guide-icon">
-                    <svg viewBox="0 0 24 24">
-                      <path d="M4 20V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v14" />
-                      <path d="M16 10h2a2 2 0 0 1 2 2v8" />
-                      <path d="M4 20h16" />
-                    </svg>
-                  </div>
-                  <h3>Hotel Arrangement</h3>
-                  <p>
-                    Hotel support in Makkah and Madinah based on package
-                    category.
-                  </p>
-                </div>
-                <div class="included-card">
-                  <div class="guide-icon">
-                    <svg viewBox="0 0 24 24">
-                      <path d="M5 9 12 5l7 4v10H5V9Z" />
-                      <path d="M5 10h14" />
-                      <path d="M8 13h8" />
-                      <path d="M9 19v-4h6v4" />
-                    </svg>
-                  </div>
-                  <h3>Ziyarat Support</h3>
-                  <p>
-                    Guidance for important Ziyarat places in Makkah and Madinah.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="haj-section guide-panel">
-            <div class="container">
-              <div class="reveal">
-                <div class="section-label">Everything You Need to Know</div>
-                <h2 class="section-title">Your Complete Umrah Guide</h2>
-                <p class="section-sub">
-                  From first enquiry to departure, we help you understand
-                  package options, documents, travel flow and important
-                  arrangements.
-                </p>
-              </div>
-              <div class="guide-grid reveal">
-                <div class="guide-card">
-                  <div class="guide-icon">
-                    <svg viewBox="0 0 24 24">
-                      <path
-                        d="M12 21s7-5.2 7-12a7 7 0 0 0-14 0c0 6.8 7 12 7 12Z"
-                      />
-                      <circle cx="12" cy="9" r="2.5" />
-                    </svg>
-                  </div>
-                  <h3>Makkah & Madinah Stay</h3>
-                  <p>
-                    We guide customers with stay options, location preferences
-                    and package category selection.
-                  </p>
-                  <ol>
-                    <li>Hotel category discussion</li>
-                    <li>Room sharing options</li>
-                    <li>Stay duration planning</li>
-                    <li>Family-friendly package guidance</li>
-                  </ol>
-                </div>
-                <div class="guide-card">
-                  <div class="guide-icon">
-                    <svg viewBox="0 0 24 24">
-                      <path d="M4 18h16" />
-                      <path d="M5 18 6.8 8l4.2 4 3-6 3 6 4.2-4L19 18" />
-                      <path d="M8 21h8" />
-                    </svg>
-                  </div>
-                  <h3>Spiritual Journey Support</h3>
-                  <p>
-                    We help customers prepare for a smooth and respectful sacred
-                    journey.
-                  </p>
-                  <ol>
-                    <li>Travel requirement discussion</li>
-                    <li>Package comparison</li>
-                    <li>Pre-departure support</li>
-                    <li>Local arrangement guidance</li>
-                  </ol>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="haj-section documents-panel">
-            <div class="container">
-              <div class="reveal section-centered">
-                <div class="section-label">Documents Required</div>
-                <h2 class="section-title">
-                  Documents We Usually Guide You For
-                </h2>
-                <p class="section-sub">
-                  Requirements may change based on airline, travel date, visa
-                  rules and government updates. Our team will confirm final
-                  details before processing.
-                </p>
-              </div>
-              <div class="doc-list reveal">
-                <div class="doc-item">Valid passport</div>
-                <div class="doc-item">Passport-size photographs</div>
-                <div class="doc-item">Vaccination details, if required</div>
-                <div class="doc-item">Aadhaar/PAN details, if required</div>
-                <div class="doc-item">Travel dates and passenger details</div>
-                <div class="doc-item">
-                  Payment confirmation after package finalization
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="haj-section plan-panel">
-            <div class="container">
-              <div class="reveal section-centered">
-                <div class="section-label">How We Plan Your Journey</div>
-                <h2 class="section-title">A Simple Guided Process</h2>
-              </div>
-              <div class="haj-timeline reveal">
-                <div class="timeline-step">
-                  <span>01</span>
-                  <h3>Share Travel Dates</h3>
-                  <p>
-                    Tell us your month, number of travellers and preferred
-                    package type.
-                  </p>
-                </div>
-                <div class="timeline-step">
-                  <span>02</span>
-                  <h3>Get Package Options</h3>
-                  <p>
-                    We suggest options based on budget, flight availability and
-                    hotel category.
-                  </p>
-                </div>
-                <div class="timeline-step">
-                  <span>03</span>
-                  <h3>Documents & Booking</h3>
-                  <p>
-                    We guide you through documentation, visa support, flights
-                    and hotels.
-                  </p>
-                </div>
-                <div class="timeline-step">
-                  <span>04</span>
-                  <h3>Travel with Support</h3>
-                  <p>
-                    Receive travel guidance and support for a smooth sacred
-                    journey.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="section islamic-cta">
-            <div class="container">
-              <div class="reveal">
-                <div class="section-label">May Allah Accept Your Ibaadat</div>
-                <h2 class="section-title">Begin your sacred journey today</h2>
-                <p class="section-sub">
-                  Speak with our team for Umrah packages, Haj assistance,
-                  documents, flights, hotels and complete travel guidance.
-                </p>
-                <div class="haj-buttons" style="margin-top: 28px">
-                  <a
-                    class="btn btn-gold"
-                    target="_blank"
-                    href="https://wa.me/919405893383?text=Assalamualaikum%2C%20I%20want%20Haj%20or%20Umrah%20package%20details"
-                    >WhatsApp Enquiry</a
-                  >
-                  <a class="btn btn-white" href="tel:+919405893383">Call Now</a>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-      </section>
-
-      <section class="section contact" id="contact">
-        <div class="container">
-          <div class="contact-grid reveal">
-            <div class="contact-box">
-              <div class="section-label">Contact Us</div>
-              <h2 class="section-title">Plan Your Journey</h2>
-              <p>
-                Call or WhatsApp us to discuss your travel requirement. Share
-                your destination, travel date and number of travellers.
-              </p>
-              <div style="display: grid; gap: 14px; margin: 24px 0">
-                <strong>Phone / WhatsApp: +91 94058 93383</strong
-                ><strong>Location: Mumbra, India</strong>
-              </div>
-              <div style="display: flex; gap: 12px; flex-wrap: wrap">
-                <a class="btn btn-primary" href="tel:+919405893383">Call Now</a
-                ><a
-                  class="btn btn-outline"
-                  target="_blank"
-                  href="https://maps.app.goo.gl/i4uhce4Yjxx17tNGA?g_st=ac"
-                  >Open Google Maps</a
-                ><a
-                  class="btn btn-wa"
-                  target="_blank"
-                  href="https://wa.me/919405893383?text=Hello%2C%20I%20want%20to%20enquire%20about%20travel%20packages"
-                  >WhatsApp</a
-                >
-              </div>
-            </div>
-            <form id="enquiryForm">
-              <h3>Send Enquiry</h3>
-              <div class="form-row">
-                <div class="form-group">
-                  <label>Name</label
-                  ><input type="text" placeholder="Your name" required />
-                </div>
-                <div class="form-group">
-                  <label>Phone Number</label
-                  ><input type="tel" placeholder="Your phone number" required />
-                </div>
-              </div>
-              <div class="form-group">
-                <label>Service Required</label
-                ><select required>
-                  <option value="">Select service</option>
-                  <option>Domestic Tour</option>
-                  <option>International Tour</option>
-                  <option>Flight Booking</option>
-                  <option>Hotel Booking</option>
-                  <option>Visa Assistance</option>
-                  <option>Haj Package</option>
-                  <option>Umrah Package</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Destination</label
-                ><input
-                  type="text"
-                  placeholder="Example: Dubai, Kashmir, Umrah"
-                />
-              </div>
-              <div class="form-group">
-                <label>Message</label
-                ><textarea
-                  placeholder="Tell us your travel date, number of people and requirements"
-                ></textarea>
-              </div>
-              <button class="btn btn-primary" type="submit" style="width: 100%">
-                Submit Enquiry
-              </button>
-              <div class="success-msg" id="successMsg">
-                Opening WhatsApp with your enquiry details...
-              </div>
-              <p class="form-hint">
-                Submitting this form will open WhatsApp with your travel
-                details.
-              </p>
-            </form>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer>
-      <div class="container">
-        <div class="footer-grid">
-          <div>
-            <div class="footer-brand">Design Tours and Travels</div>
-            <p class="footer-desc">
-              Trusted tours and travel assistance from Mumbra for domestic
-              tours, international tours, flights, hotels, visa support, Haj and
-              Umrah guidance.
+  <main>
+    <section class="mode-panel active" id="toursPanel">
+      <section class="hero tours-hero" id="home">
+        <div class="container hero-grid">
+          <div class="hero-content reveal">
+            <div class="hero-badge">Mumbra | Thane | Maharashtra</div>
+            <h1>We Design Your <span>Safe & Beautiful</span> Travel</h1>
+            <p>
+              Your trusted travel partner for flights, holidays, visa assistance and customised domestic and international tour packages.
             </p>
-            <a
-              class="footer-cta"
-              target="_blank"
-              href="https://wa.me/919405893383?text=Hello%2C%20I%20want%20to%20plan%20a%20tour%20package"
-              >Plan a Trip</a
-            >
+            <div class="hero-buttons">
+              <a class="btn btn-gold" href="#contact">Get Free Quote</a>
+              <a class="btn btn-white" href="#packages">View Tour Packages</a>
+              <button class="btn btn-outline" data-mode="haj" type="button">Umrah & Haj Packages</button>
+            </div>
           </div>
-          <div>
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#packages">Packages</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#why-choose">Why Choose Us</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4>Services</h4>
-            <ul class="footer-service-list">
-              <li>Domestic Tours</li>
-              <li>International Tours</li>
-              <li>Flight Booking</li>
-              <li>Hotel Booking</li>
-              <li>Visa Assistance</li>
-              <li>Haj & Umrah Guidance</li>
-            </ul>
-          </div>
-          <div>
-            <h4>Popular Destinations</h4>
-            <ul class="footer-destination-list">
-              <li>Dubai</li>
-              <li>Singapore</li>
-              <li>Malaysia</li>
-              <li>Turkey</li>
-              <li>Europe</li>
-              <li>Kashmir</li>
-              <li>Kerala</li>
-              <li>Goa & Manali</li>
-            </ul>
-          </div>
-          <div>
-            <h4>Contact</h4>
-            <ul>
-              <li><a href="tel:+919405893383">+91 94058 93383</a></li>
-              <li>
-                <a target="_blank" href="https://wa.me/919405893383"
-                  >WhatsApp Enquiry</a
-                >
-              </li>
-              <li>
-                <a
-                  target="_blank"
-                  href="https://maps.app.goo.gl/i4uhce4Yjxx17tNGA?g_st=ac"
-                  >Open Google Maps</a
-                >
-              </li>
-              <li>Mumbra, India</li>
-            </ul>
+
+          <div class="quick-card reveal">
+            <h3>Quick Trip Enquiry</h3>
+            <input placeholder="Destination e.g. Dubai, Kashmir" />
+            <select>
+              <option>Travel Type</option>
+              <option>Domestic Tour</option>
+              <option>International Tour</option>
+              <option>Family Package</option>
+              <option>Group Tour</option>
+            </select>
+            <input placeholder="No. of Travellers" />
+            <a class="btn btn-gold" target="_blank" href="https://wa.me/919405893383?text=Hello%2C%20I%20want%20package%20details">Get Package Details</a>
           </div>
         </div>
-        <div class="footer-bottom">
-          <span>© 2026 Design Tours and Travels. All rights reserved.</span
-          ><span>Tours | Flights | Hotels | Visa | Haj & Umrah</span>
+      </section>
+
+      <section class="stats-section">
+        <div class="container stats-grid reveal">
+          <div class="stat-card"><strong>500+</strong><span>Happy Travellers</span></div>
+          <div class="stat-card"><strong>10+</strong><span>Years Experience</span></div>
+          <div class="stat-card"><strong>4.8</strong><span>Google Rating</span></div>
         </div>
+      </section>
+
+      <section class="trust-strip">
+        <div class="container trust-grid">
+          <div class="trust-item">
+            <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M4 18V6l5-2 6 2 5-2v12l-5 2-6-2-5 2Z"/><path d="M9 4v12"/><path d="M15 6v12"/></svg></div>
+            <div><strong>Tour Planning</strong><span>Domestic & international packages</span></div>
+          </div>
+          <div class="trust-item">
+            <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M3 11.5 21 4l-7.5 17-3-7-7.5-2.5Z"/><path d="M10.5 14 21 4"/></svg></div>
+            <div><strong>Flights & Hotels</strong><span>Booking support</span></div>
+          </div>
+          <div class="trust-item">
+            <div class="icon-box"><svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 8h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg></div>
+            <div><strong>Visa Assistance</strong><span>Document guidance</span></div>
+          </div>
+          <div class="trust-item">
+            <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.2 7-12a7 7 0 0 0-14 0c0 6.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+            <div><strong>Mumbra Based</strong><span>Local travel assistance</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section packages" id="packages">
+        <div class="container">
+          <div class="section-head packages-head reveal">
+            <div>
+              <div class="section-label">Popular Tour Packages</div>
+              <h2 class="section-title">Destinations & Common Sightseeing Places</h2>
+              <p class="section-sub">
+                Swipe through popular domestic and international destinations. Final itinerary may change based on package, date, hotel, flight timing and customer requirement.
+              </p>
+            </div>
+            <div class="filter-row" aria-label="Package filters">
+              <button class="filter-btn active" data-filter="all" type="button">All</button>
+              <button class="filter-btn" data-filter="international" type="button">International</button>
+              <button class="filter-btn" data-filter="domestic" type="button">Domestic</button>
+            </div>
+          </div>
+          <div class="package-slider" id="packageSlider"></div>
+        </div>
+      </section>
+
+      <section class="section services" id="services">
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="section-label">Our Services</div>
+            <h2 class="section-title">Complete Travel Support Under One Roof</h2>
+            <p class="section-sub">From holiday planning to flights, hotels and visa support, we provide travel assistance for families, groups and business travellers.</p>
+          </div>
+
+          <div class="services-grid">
+            <article class="service-card reveal"><h3>Domestic Tours</h3><p>Plan trips across India including Kashmir, Kerala, Goa, Manali, Rajasthan and more.</p></article>
+            <article class="service-card reveal"><h3>International Tours</h3><p>Travel packages for Dubai, Singapore, Turkey, Malaysia, Europe, Thailand and more.</p></article>
+            <article class="service-card reveal"><h3>Holiday Packages</h3><p>Family, group and customised travel packages based on destination and budget.</p></article>
+            <article class="service-card reveal"><h3>Flight Booking</h3><p>Domestic and international flight booking assistance for your travel plans.</p></article>
+            <article class="service-card reveal"><h3>Hotel Booking</h3><p>Hotel booking support based on comfort, location, family needs and budget.</p></article>
+            <article class="service-card reveal"><h3>Visa Assistance</h3><p>Guidance for visa documents and travel-related requirements for different destinations.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section why-section">
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="section-label">Why Choose Us</div>
+            <h2 class="section-title">Why Travellers Choose Design Tours and Travels</h2>
+            <p class="section-sub">Local guidance, personalised planning and complete support for domestic and international journeys.</p>
+          </div>
+
+          <div class="why-grid">
+            <article class="why-card reveal"><h3>Mumbra Based Assistance</h3><p>Easy local support for customers from Mumbra, Thane and nearby areas.</p></article>
+            <article class="why-card reveal"><h3>Customised Packages</h3><p>Packages are planned based on destination, budget, dates and number of travellers.</p></article>
+            <article class="why-card reveal"><h3>Flight, Hotel & Visa Support</h3><p>Get assistance for travel bookings and required documentation in one place.</p></article>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="mode-panel" id="hajPanel">
+      <section class="hero haj-hero">
+        <div class="lantern lantern-one" aria-hidden="true"></div>
+        <div class="lantern lantern-two" aria-hidden="true"></div>
+        <div class="kaaba-mark" aria-hidden="true"></div>
+
+        <div class="container">
+          <div class="haj-content reveal">
+            <div class="haj-badge">Premium Haj & Umrah Support</div>
+            <div class="arabic-line">لَبَّيْكَ اللَّهُمَّ لَبَّيْك</div>
+            <h1>Answer the Call of Allah’s Sacred Houses</h1>
+            <p>
+              Let us take care of everything — from visa to flight to hotel — so you can focus on ibaadat and the spiritual experience of a lifetime.
+            </p>
+            <div class="hero-buttons">
+              <a class="btn btn-gold" target="_blank" href="https://wa.me/919405893383?text=Assalamualaikum%2C%20I%20want%20Umrah%20package%20details">View Umrah Packages</a>
+              <a class="btn btn-white" href="tel:+919405893383">Call for Haj Details</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section haj-section">
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="section-label">Packages</div>
+            <h2 class="section-title">Umrah & Haj Travel Assistance</h2>
+            <p class="section-sub">Packages are customised based on travel dates, hotel preference, group size and availability.</p>
+          </div>
+          <div class="haj-grid">
+            <article class="haj-card reveal"><h3>Umrah Packages</h3><p>Family and group Umrah package support with flights, hotels, visa guidance and ziyarat assistance.</p><span>Contact for Price</span></article>
+            <article class="haj-card reveal"><h3>Haj Assistance</h3><p>Guidance for Haj travel planning, documents, group arrangements and related booking support.</p><span>Contact for Price</span></article>
+            <article class="haj-card reveal"><h3>Ziyarat Support</h3><p>Support for Makkah and Madinah ziyarat planning based on package and customer requirement.</p><span>Included in selected packages</span></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section haj-section guide-section">
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="section-label">Complete Guide</div>
+            <h2 class="section-title">Your Complete Umrah Guide</h2>
+            <p class="section-sub">A clear process to help you understand the journey before booking.</p>
+          </div>
+          <div class="guide-grid">
+            <article class="guide-card reveal"><h3>What’s Included</h3><p>Visa guidance, flight support, Makkah and Madinah hotel assistance, ground support and package consultation.</p></article>
+            <article class="guide-card reveal"><h3>Documents Required</h3><p>Passport, photos, vaccination details if required, travel dates and basic identity documents. Requirements may change based on rules.</p></article>
+            <article class="guide-card reveal"><h3>How We Plan Your Trip</h3><ol><li>Share your preferred dates and travellers.</li><li>Receive suitable package options.</li><li>Confirm hotel, flight and visa guidance.</li><li>Travel with proper support.</li></ol></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section islamic-cta">
+        <div class="container reveal">
+          <div class="section-label">Start Your Journey</div>
+          <h2 class="section-title">Plan Your Haj or Umrah Journey with Us</h2>
+          <p class="section-sub">Speak with Design Tours and Travels for package guidance, group support and travel planning.</p>
+          <div class="hero-buttons">
+            <a class="btn btn-gold" target="_blank" href="https://wa.me/919405893383?text=Assalamualaikum%2C%20I%20want%20Haj%20or%20Umrah%20package%20details">WhatsApp Enquiry</a>
+            <button class="btn btn-white" data-mode="tours" type="button">Back to Tours</button>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-box reveal">
+          <div class="section-label">Contact Us</div>
+          <h2 class="section-title">Plan Your Next Journey</h2>
+          <p>Call or WhatsApp us to discuss your destination, travel date and number of travellers.</p>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="tel:+919405893383">Call Now</a>
+            <a class="btn btn-outline" target="_blank" href="https://maps.app.goo.gl/i4uhce4Yjxx17tNGA?g_st=ac">Open Google Maps</a>
+            <a class="btn btn-whatsapp" target="_blank" href="https://wa.me/919405893383?text=Hello%2C%20I%20want%20to%20enquire%20about%20travel%20packages">WhatsApp</a>
+          </div>
+        </div>
+
+        <form id="enquiryForm" class="reveal">
+          <h3>Send Enquiry on WhatsApp</h3>
+          <div class="form-row">
+            <div class="form-group"><label for="name">Name</label><input id="name" type="text" placeholder="Your name" required /></div>
+            <div class="form-group"><label for="phone">Phone Number</label><input id="phone" type="tel" placeholder="Your phone number" required /></div>
+          </div>
+          <div class="form-group">
+            <label for="service">Service Required</label>
+            <select id="service" required>
+              <option value="">Select service</option>
+              <option>Domestic Tour</option>
+              <option>International Tour</option>
+              <option>Flight Booking</option>
+              <option>Hotel Booking</option>
+              <option>Visa Assistance</option>
+              <option>Haj Package</option>
+              <option>Umrah Package</option>
+            </select>
+          </div>
+          <div class="form-group"><label for="destination">Destination</label><input id="destination" type="text" placeholder="Example: Dubai, Kashmir, Goa" /></div>
+          <div class="form-group"><label for="message">Message</label><textarea id="message" placeholder="Tell us your travel date, number of people and requirements"></textarea></div>
+          <button class="btn btn-primary full-btn" type="submit">Send on WhatsApp</button>
+          <div class="success-msg" id="successMsg">Opening WhatsApp with your enquiry details.</div>
+        </form>
       </div>
-    </footer>
-    <div class="bottom-cta">
-      <a href="tel:+919405893383">Call</a
-      ><a
-        target="_blank"
-        href="https://maps.app.goo.gl/i4uhce4Yjxx17tNGA?g_st=ac"
-        >Maps</a
-      ><a target="_blank" href="https://wa.me/919405893383">WhatsApp</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><h3>Design Tours and Travels</h3><p>Trusted tours and travel assistance from Mumbra for domestic tours, international tours, flights, hotels, visa support, Haj and Umrah.</p></div>
+      <div><h4>Quick Links</h4><a href="#services">Services</a><a href="#packages">Packages</a><a href="#contact">Contact</a></div>
+      <div><h4>Services</h4><a href="#services">Domestic Tours</a><a href="#services">International Tours</a><a href="#services">Flight Booking</a><a href="#services">Visa Assistance</a></div>
+      <div><h4>Destinations</h4><a href="#packages">Dubai</a><a href="#packages">Singapore</a><a href="#packages">Malaysia</a><a href="#packages">Kashmir</a></div>
+      <div><h4>Contact</h4><a href="tel:+919405893383">+91 94058 93383</a><a target="_blank" href="https://wa.me/919405893383">WhatsApp</a><a target="_blank" href="https://maps.app.goo.gl/i4uhce4Yjxx17tNGA?g_st=ac">Open Google Maps</a></div>
     </div>
-    <script src="js/script.js"></script>
-  </body>
+    <div class="container footer-bottom">© 2026 Design Tours and Travels. All rights reserved.</div>
+  </footer>
+
+  <div class="bottom-cta">
+    <a href="tel:+919405893383">Call</a>
+    <a target="_blank" href="https://maps.app.goo.gl/i4uhce4Yjxx17tNGA?g_st=ac">Maps</a>
+    <a target="_blank" href="https://wa.me/919405893383?text=Hello%2C%20I%20want%20to%20enquire%20about%20travel%20packages">WhatsApp</a>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
 </html>
-
-<!-- QA override: fix Haj/Umrah desktop calligraphy spacing and background calligraphy line -->
-<style>
-  .haj-content {
-    position: relative;
-    z-index: 3;
-  }
-
-  .haj-hero::after {
-    white-space: nowrap !important;
-    max-width: none !important;
-    width: auto !important;
-    right: clamp(28px, 5vw, 96px) !important;
-    top: clamp(26px, 7vh, 72px) !important;
-    font-size: clamp(4.8rem, 7.8vw, 8.6rem) !important;
-    line-height: 1 !important;
-    text-align: right !important;
-    opacity: 1 !important;
-    color: rgba(244, 213, 138, 0.12) !important;
-    transform: none;
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  .arabic-line {
-    display: block;
-    width: fit-content;
-    max-width: 100%;
-    white-space: nowrap !important;
-    font-size: clamp(2.8rem, 4.4vw, 4.8rem) !important;
-    line-height: 1.12 !important;
-    margin-top: 6px !important;
-    margin-bottom: 30px !important;
-    padding-bottom: 4px;
-    position: relative;
-    z-index: 4;
-  }
-
-  .haj-content h1 {
-    position: relative;
-    z-index: 4;
-    margin-top: 0 !important;
-  }
-
-  @media (max-width: 980px) {
-    .haj-hero::after {
-      right: 16px !important;
-      top: 28px !important;
-      font-size: clamp(3.5rem, 9vw, 6rem) !important;
-      color: rgba(244, 213, 138, 0.1) !important;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .haj-hero::after {
-      right: -18px !important;
-      top: 54px !important;
-      font-size: clamp(3.2rem, 13vw, 4.8rem) !important;
-      color: rgba(244, 213, 138, 0.1) !important;
-    }
-
-    .arabic-line {
-      white-space: normal !important;
-      font-size: clamp(2.15rem, 10vw, 3rem) !important;
-      line-height: 1.25 !important;
-      margin-bottom: 22px !important;
-    }
-  }
-</style>
