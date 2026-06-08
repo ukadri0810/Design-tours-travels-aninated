@@ -1311,3 +1311,129 @@ body.haj-mode .site-footer {
     text-align: center;
   }
 }
+/* =========================================================
+   HAJ HERO FINAL FIX
+   1. Main Arabic line in one line on desktop
+   2. Faded Arabic line moved away from heading
+   3. Remove unwanted decorative box
+   4. Reduce green overlay slightly so background image is visible
+   ========================================================= */
+
+.haj-hero {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(2, 22, 15, 0.82),
+      rgba(4, 56, 36, 0.78)
+    ),
+    url("../assets/makkah.jpg") center/cover no-repeat !important;
+}
+
+.haj-hero::before {
+  opacity: 0.1 !important;
+}
+
+/* Faded decorative Arabic on right side */
+.haj-hero::after {
+  content: "لَبَّيْكَ اللَّهُمَّ\Aلَبَّيْكَ" !important;
+  white-space: pre-line !important;
+  position: absolute;
+  right: clamp(20px, 4vw, 72px) !important;
+  top: 34px !important;
+  width: min(420px, 28vw) !important;
+  max-width: 420px !important;
+  overflow: hidden !important;
+  color: rgba(244, 213, 138, 0.14) !important;
+  font-family: var(--font-arabic) !important;
+  font-size: clamp(2.8rem, 4.6vw, 5rem) !important;
+  line-height: 0.95 !important;
+  text-align: right !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  animation: calligraphyFloat 9s ease-in-out infinite !important;
+}
+
+/* Main visible Arabic line */
+.arabic-line {
+  display: block !important;
+  margin: 0 0 26px !important;
+  max-width: 100% !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: clip !important;
+  font-family: var(--font-arabic) !important;
+  font-size: clamp(2.4rem, 4.5vw, 4.6rem) !important;
+  line-height: 1.08 !important;
+  color: var(--gold-2) !important;
+  text-shadow: 0 0 34px rgba(215, 170, 66, 0.22) !important;
+}
+
+/* Make sure hero content stays above decorative text */
+.haj-content {
+  position: relative !important;
+  z-index: 2 !important;
+  max-width: 760px !important;
+  padding: 88px 0 !important;
+}
+
+/* Remove unwanted decorative box on green background */
+.kaaba-mark {
+  display: none !important;
+}
+
+/* If any empty glass card is showing in Haj hero, hide it */
+.haj-hero .quick-card,
+.haj-hero .hero-side-card,
+.haj-hero .glass-card {
+  display: none !important;
+}
+
+/* Medium screens */
+@media (max-width: 980px) {
+  .haj-hero::after {
+    width: min(340px, 30vw) !important;
+    max-width: 340px !important;
+    font-size: clamp(2.4rem, 4.2vw, 4rem) !important;
+    top: 28px !important;
+  }
+
+  .arabic-line {
+    font-size: clamp(2.1rem, 4vw, 3.6rem) !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .haj-hero {
+    background:
+      linear-gradient(
+        135deg,
+        rgba(2, 22, 15, 0.86),
+        rgba(4, 56, 36, 0.82)
+      ),
+      url("../assets/makkah.jpg") center/cover no-repeat !important;
+  }
+
+  .haj-hero::after {
+    content: "لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ" !important;
+    white-space: nowrap !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    font-size: 2.15rem !important;
+    line-height: 1 !important;
+    opacity: 0.13 !important;
+    overflow: hidden !important;
+  }
+
+  .arabic-line {
+    white-space: normal !important;
+    overflow: visible !important;
+    font-size: 1.9rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 22px !important;
+  }
+}
