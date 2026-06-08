@@ -224,12 +224,25 @@ function observeReveal() {
 }
 window.addEventListener("scroll", observeReveal);
 window.addEventListener("load", () => {
-  setTimeout(
-    () => document.getElementById("loader").classList.add("hide"),
-    1350,
-  );
+  setTimeout(() => {
+    const loader = document.getElementById("loader");
+
+    if (loader) {
+      loader.classList.add("hide");
+    }
+  }, 1800);
+
   observeReveal();
 });
+
+/* Safety fallback: hide loader even if laptop browser loads slowly */
+setTimeout(() => {
+  const loader = document.getElementById("loader");
+
+  if (loader) {
+    loader.classList.add("hide");
+  }
+}, 2300);
 document.getElementById("enquiryForm").addEventListener("submit", (e) => {
   e.preventDefault();
   const form = e.target;
