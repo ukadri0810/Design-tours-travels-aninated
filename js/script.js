@@ -1,3 +1,4 @@
+```js
 const packages = [
   {
     type: "international",
@@ -41,7 +42,7 @@ const packages = [
   {
     type: "international",
     title: "Malaysia Tour Package",
-    img: "assets/malaysia.jpg",
+    img: "assets/malaysia.png",
     desc: "Kuala Lumpur sightseeing and family-friendly attractions.",
     places: [
       "Petronas Towers",
@@ -99,49 +100,79 @@ const packages = [
     ],
   },
 ];
+
 function renderPackages(filter = "all") {
-  const el = document.getElementById("packageSlider");
-  el.innerHTML = "";
+  const slider = document.getElementById("packageSlider");
+
+  if (!slider) return;
+
+  slider.innerHTML = "";
+
   packages
-    .filter((p) => filter === "all" || p.type === filter)
-    .forEach((p) => {
+    .filter((packageItem) => {
+      return filter === "all" || packageItem.type === filter;
+    })
+    .forEach((packageItem) => {
       const card = document.createElement("div");
       card.className = "package-card";
-      card.dataset.type = p.type;
-      card.innerHTML = `<div class="package-img" style="background-image:url('${
-        p.img
-      }
-                        ');
-                        background-position:${
-                          p.title.includes("Malaysia")
-                            ? "center top"
-                            : p.title.includes("Manali")
-                              ? "center center"
-                              : "center center"
-                        }
-                          "><span class="pkg-badge">${p.type}
-                            </span>
-</div>
-<div class="package-body"><h3>${p.title}
-                              </h3><p>${p.desc}
-                                </p>
-<div class="meta"><span>Contact for Price</span><span>Customised Package</span>
-</div>
-<div class="places">${p.places
-        .map(
-          (x) => `<span>${x}
-                                    </span>`,
-        )
-        .join("")}
-                                    </div><a class="btn btn-primary" target="_blank" href="https://wa.me/919405893383?text=Hello%2C%20I%20want%20${encodeURIComponent(
-                                      p.title,
-                                    )}
-                                      %20details">Get Package Details</a>
-</div>`;
-      el.appendChild(card);
+      card.dataset.type = packageItem.type;
+
+      const placesHtml = packageItem.places
+        .map((place) => `<span>${place}</span>`)
+        .join("");
+
+      const whatsappText = encodeURIComponent(
+        `Hello, I want ${packageItem.title} details`
+      );
+
+      card.innerHTML = `
+        <div
+          class="package-img"
+          style="
+            background-image: url('${packageItem.img}');
+            background-position: ${getImagePosition(packageItem.title)};
+          "
+        >
+          <span class="pkg-badge">${packageItem.type}</span>
+        </div>
+
+        <div class="package-body">
+          <h3>${packageItem.title}</h3>
+          <p>${packageItem.desc}</p>
+
+          <div class="meta">
+            <span>Contact for Price</span>
+            <span>Customised Package</span>
+          </div>
+
+          <div class="places">
+            ${placesHtml}
+          </div>
+
+          <a
+            class="btn btn-primary"
+            target="_blank"
+            href="https://wa.me/919405893383?text=${whatsappText}"
+          >
+            Get Package Details
+          </a>
+        </div>
+      `;
+
+      slider.appendChild(card);
     });
 }
+
+function getImagePosition(title) {
+  if (title.includes("Malaysia")) return "center center";
+  if (title.includes("Singapore")) return "center center";
+  if (title.includes("Manali")) return "center center";
+
+  return "center center";
+}
+
 renderPackages();
+```
 document.querySelectorAll(".filter-btn").forEach((btn) =>
   btn.addEventListener("click", () => {
     document
