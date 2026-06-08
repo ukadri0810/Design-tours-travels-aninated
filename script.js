@@ -1,0 +1,9 @@
+
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader')?.classList.add('hide'),1800));
+const h=document.getElementById('hamb'),m=document.getElementById('mobile');
+if(h&&m){h.onclick=()=>m.classList.toggle('hidden');m.querySelectorAll('a').forEach(a=>a.onclick=()=>m.classList.add('hidden'))}
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');obs.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.card,.package,.quick-card,.contact-grid,.haj-card,.about-grid,.step').forEach(x=>{x.classList.add('reveal');obs.observe(x)});
+document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{const f=b.dataset.filter;document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.package').forEach(c=>c.classList.toggle('hide',!(f==='all'||c.dataset.category===f)))});
+function quick(){let d=document.getElementById('hero-destination')?.value||'Not decided',t=document.getElementById('hero-type')?.value||'Travel Package',n=document.getElementById('hero-travelers')?.value||'Not mentioned';window.open('https://wa.me/919405893383?text='+encodeURIComponent(`Hello, I want package details. Destination: ${d}, Type: ${t}, Travellers: ${n}`),'_blank')}
+function submitForm(){let name=document.getElementById('name')?.value||'',ph=document.getElementById('phone')?.value||'';if(!name||!ph){alert('Please fill in your name and phone number.');return}let s=document.getElementById('service')?.value||'Travel Package',d=document.getElementById('dest')?.value||'Not mentioned',msg=document.getElementById('msg')?.value||'';document.getElementById('success').style.display='block';window.open('https://wa.me/919405893383?text='+encodeURIComponent(`Hello, I want to enquire. Name: ${name}, Phone: ${ph}, Service: ${s}, Destination/Month: ${d}, Message: ${msg}`),'_blank')}
