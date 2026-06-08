@@ -2,7 +2,7 @@ const packages = [
   {
     type: "international",
     title: "Dubai Tour Package",
-    img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=80&auto=format&fit=crop",
+    img: "assets/dubai.jpg",
     desc: "Sightseeing, shopping, family attractions and desert experience.",
     places: [
       "Burj Khalifa",
