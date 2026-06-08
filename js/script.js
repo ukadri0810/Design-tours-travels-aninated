@@ -1,55 +1,38 @@
+/* =========================================================
+   Design Tours and Travels
+   Clean, human-readable JavaScript
+   ========================================================= */
+
+const WHATSAPP_NUMBER = "919405893383";
+
 const packages = [
   {
     type: "international",
     title: "Dubai Tour Package",
     img: "assets/dubai.jpg",
     desc: "Sightseeing, shopping, family attractions and desert experience.",
-    places: [
-      "Burj Khalifa",
-      "Dubai Mall",
-      "Desert Safari",
-      "Marina Cruise",
-      "Gold Souk",
-    ],
+    places: ["Burj Khalifa", "Dubai Mall", "Desert Safari", "Marina Cruise", "Gold Souk"],
   },
   {
     type: "international",
     title: "Singapore Tour Package",
     img: "assets/singapore.jpg",
     desc: "City attractions, family activities and modern sightseeing.",
-    places: [
-      "Merlion Park",
-      "Sentosa",
-      "Universal Studios",
-      "Gardens by the Bay",
-      "Singapore Flyer",
-    ],
+    places: ["Merlion Park", "Sentosa", "Universal Studios", "Gardens by the Bay", "Singapore Flyer"],
   },
   {
     type: "international",
     title: "Turkey Tour Package",
     img: "assets/turkey.webp",
     desc: "Historic locations, scenic views and cultural sightseeing.",
-    places: [
-      "Istanbul",
-      "Blue Mosque",
-      "Hagia Sophia",
-      "Bosphorus Cruise",
-      "Cappadocia",
-    ],
+    places: ["Istanbul", "Blue Mosque", "Hagia Sophia", "Bosphorus Cruise", "Cappadocia"],
   },
   {
     type: "international",
     title: "Malaysia Tour Package",
     img: "assets/malaysia.png",
     desc: "Kuala Lumpur sightseeing and family-friendly attractions.",
-    places: [
-      "Petronas Towers",
-      "Batu Caves",
-      "Genting Highlands",
-      "KL Tower",
-      "Putrajaya",
-    ],
+    places: ["Petronas Towers", "Batu Caves", "Genting Highlands", "KL Tower", "Putrajaya"],
   },
   {
     type: "international",
@@ -77,206 +60,173 @@ const packages = [
     title: "Goa Tour Package",
     img: "assets/goa.jpg",
     desc: "Beaches, forts, sightseeing and leisure travel options.",
-    places: [
-      "North Goa",
-      "South Goa",
-      "Baga Beach",
-      "Calangute",
-      "Fort Aguada",
-    ],
+    places: ["North Goa", "South Goa", "Baga Beach", "Calangute", "Fort Aguada"],
   },
   {
     type: "domestic",
     title: "Manali Tour Package",
     img: "assets/manali.jpg",
     desc: "Mountains, valleys, snow points and adventure experiences.",
-    places: [
-      "Solang Valley",
-      "Atal Tunnel",
-      "Hadimba Temple",
-      "Mall Road",
-      "Rohtang",
-    ],
+    places: ["Solang Valley", "Atal Tunnel", "Hadimba Temple", "Mall Road", "Rohtang"],
   },
 ];
 
 function renderPackages(filter = "all") {
   const slider = document.getElementById("packageSlider");
-
   if (!slider) return;
 
-  slider.innerHTML = "";
+  const visiblePackages = packages.filter((item) => filter === "all" || item.type === filter);
 
-  packages
-    .filter((packageItem) => {
-      return filter === "all" || packageItem.type === filter;
-    })
-    .forEach((packageItem) => {
-      const card = document.createElement("div");
-      card.className = "package-card";
-      card.dataset.type = packageItem.type;
+  slider.innerHTML = visiblePackages
+    .map((item) => {
+      const placesHtml = item.places.map((place) => `<span>${place}</span>`).join("");
+      const whatsappText = encodeURIComponent(`Hello, I want ${item.title} details`);
 
-      const placesHtml = packageItem.places
-        .map((place) => `<span>${place}</span>`)
-        .join("");
-
-      const whatsappText = encodeURIComponent(
-        `Hello, I want ${packageItem.title} details`
-      );
-
-      card.innerHTML = `
-        <div
-          class="package-img"
-          style="
-            background-image: url('${packageItem.img}');
-            background-position: ${getImagePosition(packageItem.title)};
-          "
-        >
-          <span class="pkg-badge">${packageItem.type}</span>
-        </div>
-
-        <div class="package-body">
-          <h3>${packageItem.title}</h3>
-          <p>${packageItem.desc}</p>
-
-          <div class="meta">
-            <span>Contact for Price</span>
-            <span>Customised Package</span>
-          </div>
-
-          <div class="places">
-            ${placesHtml}
-          </div>
-
-          <a
-            class="btn btn-primary"
-            target="_blank"
-            href="https://wa.me/919405893383?text=${whatsappText}"
+      return `
+        <article class="package-card" data-type="${item.type}">
+          <div
+            class="package-img"
+            style="background-image: url('${item.img}'); background-position: center center;"
           >
-            Get Package Details
-          </a>
-        </div>
+            <span class="pkg-badge">${item.type}</span>
+          </div>
+
+          <div class="package-body">
+            <h3>${item.title}</h3>
+            <p>${item.desc}</p>
+
+            <div class="meta">
+              <span>Contact for Price</span>
+              <span>Customised Package</span>
+            </div>
+
+            <div class="places">${placesHtml}</div>
+
+            <a
+              class="btn btn-primary"
+              target="_blank"
+              href="https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappText}"
+            >
+              Get Package Details
+            </a>
+          </div>
+        </article>
       `;
+    })
+    .join("");
+}
 
-      slider.appendChild(card);
+function setupPackageFilters() {
+  document.querySelectorAll(".filter-btn").forEach((button) => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll(".filter-btn").forEach((item) => item.classList.remove("active"));
+      button.classList.add("active");
+      renderPackages(button.dataset.filter);
     });
+  });
 }
 
-function getImagePosition(title) {
-  if (title.includes("Malaysia")) return "center center";
-  if (title.includes("Singapore")) return "center center";
-  if (title.includes("Manali")) return "center center";
-
-  return "center center";
-}
-
-renderPackages();
-document.querySelectorAll(".filter-btn").forEach((btn) =>
-  btn.addEventListener("click", () => {
-    document
-      .querySelectorAll(".filter-btn")
-      .forEach((b) => b.classList.remove("active"));
-    btn.classList.add("active");
-    renderPackages(btn.dataset.filter);
-  }),
-);
 function setMode(mode) {
-  document.body.classList.toggle("haj-mode", mode === "haj");
-  document.body.classList.toggle("tours-mode", mode === "tours");
-  document
-    .getElementById("toursPanel")
-    .classList.toggle("active", mode === "tours");
-  document
-    .getElementById("hajPanel")
-    .classList.toggle("active", mode === "haj");
-  document
-    .querySelectorAll(".switch-btn")
-    .forEach((b) => b.classList.remove("active"));
-  document
-    .querySelectorAll(
-      `.switch-btn.${mode}
-                                            `,
-    )
-    .forEach((b) => b.classList.add("active"));
+  const isHajMode = mode === "haj";
+
+  document.body.classList.toggle("haj-mode", isHajMode);
+  document.body.classList.toggle("tours-mode", !isHajMode);
+
+  document.getElementById("toursPanel")?.classList.toggle("active", !isHajMode);
+  document.getElementById("hajPanel")?.classList.toggle("active", isHajMode);
+
+  document.querySelectorAll(".switch-btn").forEach((button) => {
+    button.classList.remove("active");
+  });
+
+  document.querySelectorAll(`.switch-btn.${mode}`).forEach((button) => {
+    button.classList.add("active");
+  });
+
   document.documentElement.style.scrollBehavior = "auto";
   window.scrollTo(0, 0);
+
   setTimeout(() => {
     document.documentElement.style.scrollBehavior = "smooth";
     observeReveal();
-  }, 60);
+  }, 80);
 }
-document.querySelectorAll("[data-mode]").forEach((btn) =>
-  btn.addEventListener("click", () => {
-    setMode(btn.dataset.mode);
-    document.getElementById("mobileMenu").classList.add("hidden");
-  }),
-);
-document
-  .getElementById("mobileBtn")
-  .addEventListener("click", () =>
-    document.getElementById("mobileMenu").classList.toggle("hidden"),
-  );
-function observeReveal() {
-  document.querySelectorAll(".reveal").forEach((el) => {
-    const r = el.getBoundingClientRect();
-    if (r.top < window.innerHeight - 70) el.classList.add("visible");
+
+function setupModeButtons() {
+  document.querySelectorAll("[data-mode]").forEach((button) => {
+    button.addEventListener("click", () => {
+      setMode(button.dataset.mode);
+      document.getElementById("mobileMenu")?.classList.add("hidden");
+    });
   });
 }
-window.addEventListener("scroll", observeReveal);
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    const loader = document.getElementById("loader");
 
-    if (loader) {
-      loader.classList.add("hide");
+function setupMobileMenu() {
+  const button = document.getElementById("mobileMenuBtn");
+  const menu = document.getElementById("mobileMenu");
+
+  button?.addEventListener("click", () => {
+    menu?.classList.toggle("hidden");
+  });
+}
+
+function observeReveal() {
+  document.querySelectorAll(".reveal").forEach((element) => {
+    const rect = element.getBoundingClientRect();
+
+    if (rect.top < window.innerHeight - 70) {
+      element.classList.add("visible");
     }
-  }, 1800);
+  });
+}
 
-  observeReveal();
-});
-
-/* Safety fallback: hide loader even if laptop browser loads slowly */
-setTimeout(() => {
+function setupLoader() {
   const loader = document.getElementById("loader");
 
-  if (loader) {
-    loader.classList.add("hide");
-  }
-}, 2300);
-document.getElementById("enquiryForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-  const form = e.target;
-  const fields = form.querySelectorAll("input, select, textarea");
-  const name = fields[0]?.value?.trim() || "";
-  const phone = fields[1]?.value?.trim() || "";
-  const service = fields[2]?.value?.trim() || "";
-  const destination = fields[3]?.value?.trim() || "";
-  const message = fields[4]?.value?.trim() || "";
-  const text = `Hello, I want to enquire about a travel package.%0A%0AName: ${encodeURIComponent(
-    name,
-  )}
-                                                      %0APhone: ${encodeURIComponent(
-                                                        phone,
-                                                      )}
-                                                        %0AService: ${encodeURIComponent(
-                                                          service,
-                                                        )}
-                                                          %0ADestination: ${encodeURIComponent(
-                                                            destination,
-                                                          )}
-                                                            %0AMessage: ${encodeURIComponent(
-                                                              message,
-                                                            )}
-                                                              `;
-  document.getElementById("successMsg").style.display = "block";
-  window.open(
-    `https://wa.me/919405893383?text=${text}
-                                                                `,
-    "_blank",
-  );
-  form.reset();
-  setTimeout(
-    () => (document.getElementById("successMsg").style.display = "none"),
-    3500,
-  );
-});
+  window.addEventListener("load", () => {
+    setTimeout(() => loader?.classList.add("hide"), 1800);
+    observeReveal();
+  });
+
+  // Safety fallback for slow browsers or cached asset issues.
+  setTimeout(() => loader?.classList.add("hide"), 2300);
+}
+
+function setupEnquiryForm() {
+  const form = document.getElementById("enquiryForm");
+  const successMessage = document.getElementById("successMsg");
+
+  if (!form) return;
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const name = document.getElementById("name")?.value.trim() || "";
+    const phone = document.getElementById("phone")?.value.trim() || "";
+    const service = document.getElementById("service")?.value.trim() || "";
+    const destination = document.getElementById("destination")?.value.trim() || "";
+    const message = document.getElementById("message")?.value.trim() || "";
+
+    const text = encodeURIComponent(
+      `Hello, I want to enquire about a travel package.\n\nName: ${name}\nPhone: ${phone}\nService: ${service}\nDestination: ${destination}\nMessage: ${message}`
+    );
+
+    successMessage.style.display = "block";
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank");
+
+    form.reset();
+    setTimeout(() => {
+      successMessage.style.display = "none";
+    }, 3500);
+  });
+}
+
+renderPackages();
+setupPackageFilters();
+setupModeButtons();
+setupMobileMenu();
+setupLoader();
+setupEnquiryForm();
+
+window.addEventListener("scroll", observeReveal);
+observeReveal();
