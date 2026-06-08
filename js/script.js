@@ -15,7 +15,7 @@ const packages = [
   {
     type: "international",
     title: "Singapore Tour Package",
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Marina_Bay_Sands_in_the_evening_-_20101120.jpg/1200px-Marina_Bay_Sands_in_the_evening_-_20101120.jpg",
+    img: "assets/singapore.jpg",
     desc: "City attractions, family activities and modern sightseeing.",
     places: [
       "Merlion Park",
@@ -28,7 +28,7 @@ const packages = [
   {
     type: "international",
     title: "Turkey Tour Package",
-    img: "https://images.unsplash.com/photo-1641128324972-af3212f0f6bd?w=900&q=80&auto=format&fit=crop",
+    img: "assets/turkey.webp",
     desc: "Historic locations, scenic views and cultural sightseeing.",
     places: [
       "Istanbul",
@@ -41,7 +41,7 @@ const packages = [
   {
     type: "international",
     title: "Malaysia Tour Package",
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Petronas_Twin_Towers%2C_Kuala_Lumpur%2C_Malaysia_%282019%29.jpg/1200px-Petronas_Twin_Towers%2C_Kuala_Lumpur%2C_Malaysia_%282019%29.jpg",
+    img: "assets/malaysia.jpg",
     desc: "Kuala Lumpur sightseeing and family-friendly attractions.",
     places: [
       "Petronas Towers",
@@ -54,28 +54,28 @@ const packages = [
   {
     type: "international",
     title: "Europe Tour Package",
-    img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=900&q=80&auto=format&fit=crop",
+    img: "assets/europe.jpg",
     desc: "Famous cities, landmarks and scenic experiences.",
     places: ["Paris", "Switzerland", "Rome", "Venice", "Amsterdam"],
   },
   {
     type: "domestic",
     title: "Kashmir Tour Package",
-    img: "https://images.unsplash.com/photo-1598091383021-15ddea10925d?w=900&q=80&auto=format&fit=crop",
+    img: "assets/kashmir.jpg",
     desc: "Mountains, gardens, valleys and beautiful local experiences.",
     places: ["Srinagar", "Gulmarg", "Pahalgam", "Sonmarg", "Dal Lake"],
   },
   {
     type: "domestic",
     title: "Kerala Tour Package",
-    img: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=900&q=80&auto=format&fit=crop",
+    img: "assets/kerala.jpg",
     desc: "Backwaters, hill stations and peaceful family travel options.",
     places: ["Munnar", "Alleppey", "Thekkady", "Kochi", "Houseboat"],
   },
   {
     type: "domestic",
     title: "Goa Tour Package",
-    img: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=900&q=80&auto=format&fit=crop",
+    img: "assets/goa.jpg",
     desc: "Beaches, forts, sightseeing and leisure travel options.",
     places: [
       "North Goa",
@@ -88,7 +88,7 @@ const packages = [
   {
     type: "domestic",
     title: "Manali Tour Package",
-    img: "https://images.unsplash.com/photo-1605540436563-5bca919ae766?w=1200&q=80&auto=format&fit=crop",
+    img: "assets/manali.jpg",
     desc: "Mountains, valleys, snow points and adventure experiences.",
     places: [
       "Solang Valley",
