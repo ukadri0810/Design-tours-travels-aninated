@@ -1437,3 +1437,8 @@ body.haj-mode .site-footer {
     margin-bottom: 22px !important;
   }
 }
+/* Remove faded background Labaik calligraphy from Haj hero */
+.haj-hero::after {
+  display: none !important;
+  content: none !important;
+}
