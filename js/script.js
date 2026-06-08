@@ -1,4 +1,3 @@
-```js
 const packages = [
   {
     type: "international",
@@ -172,7 +171,6 @@ function getImagePosition(title) {
 }
 
 renderPackages();
-```
 document.querySelectorAll(".filter-btn").forEach((btn) =>
   btn.addEventListener("click", () => {
     document
