@@ -457,3 +457,29 @@ function setupInquiryModal() {
 }
 
 setupInquiryModal();
+
+/* =========================================================
+   Mobile accordions for long Haj/Umrah guide content
+   ========================================================= */
+function setupMobileAccordions() {
+  const guideCards = document.querySelectorAll('.guide-card');
+  if (!guideCards.length) return;
+
+  guideCards.forEach((card, index) => {
+    card.classList.add('mobile-accordion');
+    if (index === 0) card.classList.add('open');
+
+    const title = card.querySelector('h3');
+    if (!title) return;
+
+    title.addEventListener('click', () => {
+      if (window.innerWidth > 640) return;
+      guideCards.forEach((item) => {
+        if (item !== card) item.classList.remove('open');
+      });
+      card.classList.toggle('open');
+    });
+  });
+}
+
+setupMobileAccordions();
