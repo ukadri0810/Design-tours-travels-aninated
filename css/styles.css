@@ -1731,3 +1731,163 @@ body.haj-mode .inquiry-dialog{border-top:5px solid #d7aa42;}
   .inquiry-dialog{padding:24px 18px 18px;border-radius:22px;max-height:94vh;}
   .inquiry-close{right:14px;top:12px;}
 }
+
+
+/* Final update: mobile logo spacing, embedded map, manual Google reviews */
+@media (max-width: 640px) {
+  .site-header {
+    padding-top: 8px !important;
+  }
+
+  .header-inner {
+    min-height: 76px !important;
+    align-items: center !important;
+  }
+
+  .brand img {
+    width: 178px !important;
+    max-height: 60px !important;
+  }
+
+  .mode-switch {
+    margin-top: 2px !important;
+  }
+}
+
+.reviews-section {
+  background: linear-gradient(180deg, #ffffff 0%, #f3f8ff 100%);
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 34px;
+}
+
+.review-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 26px;
+  box-shadow: 0 16px 44px rgba(20, 59, 109, 0.08);
+}
+
+.review-stars {
+  color: #d7aa42;
+  letter-spacing: 3px;
+  font-size: 1rem;
+  margin-bottom: 14px;
+}
+
+.review-card p {
+  color: #526173;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.review-card strong {
+  display: block;
+  color: var(--blue-dark);
+  font-weight: 900;
+}
+
+.review-card span {
+  display: block;
+  color: #64748b;
+  font-size: .86rem;
+  margin-top: 3px;
+}
+
+.reviews-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.contact-grid {
+  grid-template-columns: 0.9fr 1fr;
+  align-items: stretch;
+}
+
+.map-card {
+  grid-column: 1 / -1;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 18px;
+  box-shadow: 0 16px 44px rgba(20, 59, 109, 0.08);
+}
+
+.map-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.map-head strong {
+  display: block;
+  color: var(--blue-dark);
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.map-head span {
+  display: block;
+  color: #64748b;
+  font-size: .9rem;
+  margin-top: 2px;
+}
+
+.map-frame-link {
+  display: block;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid #dbeafe;
+  min-height: 360px;
+  background: #eaf4ff;
+}
+
+.map-frame-link iframe {
+  width: 100%;
+  height: 360px;
+  border: 0;
+  display: block;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .reviews-grid,
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .reviews-grid {
+    gap: 16px;
+  }
+
+  .review-card,
+  .map-card {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .map-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .map-open-btn {
+    width: 100%;
+  }
+
+  .map-frame-link,
+  .map-frame-link iframe {
+    height: 300px;
+    min-height: 300px;
+  }
+}
