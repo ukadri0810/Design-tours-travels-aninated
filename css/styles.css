@@ -1891,3 +1891,250 @@ body.haj-mode .inquiry-dialog{border-top:5px solid #d7aa42;}
     min-height: 300px;
   }
 }
+
+/* =========================================================
+   Mobile UX clean-up: focused header, compact hero, badges
+   ========================================================= */
+@media (max-width: 640px) {
+  .site-header {
+    padding-top: 6px;
+  }
+
+  .header-inner {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: wrap !important;
+    gap: 8px 10px !important;
+    min-height: auto !important;
+    padding: 4px 0 10px !important;
+  }
+
+  .brand {
+    order: 1;
+    flex: 1 1 auto;
+    min-width: 0 !important;
+  }
+
+  .brand img {
+    width: 190px !important;
+    max-width: 58vw !important;
+    max-height: 70px !important;
+    object-fit: contain !important;
+    object-position: left center !important;
+  }
+
+  .header-actions {
+    order: 2;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    margin-left: auto !important;
+    gap: 0 !important;
+  }
+
+  .header-actions .btn-primary,
+  .header-actions .btn-whatsapp {
+    display: none !important;
+  }
+
+  .mobile-menu-btn {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 16px !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(30, 90, 168, 0.18) !important;
+    box-shadow: 0 8px 22px rgba(20, 59, 109, 0.08) !important;
+  }
+
+  .mode-switch {
+    order: 3;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 54px !important;
+    margin: 4px 0 0 !important;
+    padding: 5px !important;
+    border-radius: 999px !important;
+  }
+
+  .switch-btn {
+    min-height: 44px !important;
+    padding: 9px 10px !important;
+    font-size: 0.82rem !important;
+  }
+
+  .hero {
+    min-height: auto !important;
+  }
+
+  .hero-content {
+    padding: 70px 0 42px !important;
+  }
+
+  .tours-hero h1,
+  .haj-content h1 {
+    font-size: clamp(2.35rem, 12vw, 3.35rem) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.055em !important;
+  }
+
+  .tours-hero p,
+  .haj-content p {
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+    margin-bottom: 26px !important;
+  }
+
+  .hero-badge,
+  .haj-badge {
+    font-size: 0.72rem !important;
+    padding: 8px 14px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .hero-buttons {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .tours-hero .hero-buttons [data-mode="haj"] {
+    display: none !important;
+  }
+
+  .hero-buttons .btn {
+    width: 100% !important;
+    min-height: 54px !important;
+    font-size: 0.95rem !important;
+  }
+
+  .quick-card {
+    display: none !important;
+  }
+
+  .stats-section {
+    padding: 0 !important;
+    margin-top: -34px !important;
+    position: relative !important;
+    z-index: 5 !important;
+    background: transparent !important;
+  }
+
+  .stats-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .stat-card {
+    min-height: auto !important;
+    padding: 14px 7px !important;
+    border-radius: 18px !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(30, 90, 168, 0.13) !important;
+    box-shadow: 0 10px 26px rgba(20, 59, 109, 0.10) !important;
+  }
+
+  .stat-card strong {
+    font-size: 1.5rem !important;
+    line-height: 1.1 !important;
+  }
+
+  .stat-card span {
+    margin-top: 4px !important;
+    font-size: 0.72rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .trust-strip {
+    padding-top: 26px !important;
+  }
+
+  .package-card {
+    border-radius: 22px !important;
+  }
+
+  .package-body p {
+    display: none !important;
+  }
+
+  .package-body {
+    padding: 18px !important;
+  }
+
+  .package-body h3 {
+    font-size: 1.05rem !important;
+    margin-bottom: 10px !important;
+  }
+
+  .places span:nth-child(n+4) {
+    display: none !important;
+  }
+
+  .meta {
+    gap: 8px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .meta span {
+    font-size: 0.72rem !important;
+    padding: 7px 9px !important;
+  }
+
+  .guide-grid {
+    gap: 12px !important;
+  }
+
+  .guide-card.mobile-accordion {
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .guide-card.mobile-accordion h3 {
+    position: relative;
+    margin: 0 !important;
+    padding: 18px 48px 18px 18px !important;
+    cursor: pointer;
+  }
+
+  .guide-card.mobile-accordion h3::after {
+    content: "+";
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: rgba(215, 170, 66, 0.16);
+    color: var(--gold);
+    font-weight: 900;
+  }
+
+  .guide-card.mobile-accordion.open h3::after {
+    content: "−";
+  }
+
+  .guide-card.mobile-accordion p,
+  .guide-card.mobile-accordion ul,
+  .guide-card.mobile-accordion ol {
+    display: none;
+    padding: 0 18px 18px !important;
+    margin: 0 !important;
+  }
+
+  .guide-card.mobile-accordion.open p,
+  .guide-card.mobile-accordion.open ul,
+  .guide-card.mobile-accordion.open ol {
+    display: block;
+  }
+
+  .map-card,
+  .review-card,
+  .contact-box,
+  form {
+    border-radius: 22px !important;
+  }
+}
