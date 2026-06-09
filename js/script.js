@@ -259,16 +259,12 @@ function setupLoader() {
   setTimeout(() => loader?.classList.add("hide"), 1800);
 }
 
-function setupQuickTripEnquiry() {
-  const button = document.getElementById("quickTripBtn");
-  if (!button) return;
+function buildQuickTripMessage() {
+  const destination = document.getElementById("quickDestination")?.value.trim() || "Not mentioned";
+  const travelType = document.getElementById("quickTravelType")?.value.trim() || "Not selected";
+  const travellers = document.getElementById("quickTravellers")?.value.trim() || "Not mentioned";
 
-  button.addEventListener("click", () => {
-    const destination = document.getElementById("quickDestination")?.value.trim() || "";
-    const travelType = document.getElementById("quickTravelType")?.value.trim() || "";
-    const travellers = document.getElementById("quickTravellers")?.value.trim() || "";
-
-    const text = `Hello Design Tours and Travels,
+  return `Hello Design Tours and Travels,
 I want package details for a customised trip.
 
 Destination: ${destination}
@@ -278,10 +274,34 @@ Preferred travel month:
 Departure city: 
 Budget range: 
 
-Please share package options and contact-for-price details.`;
+Please share suitable package options and contact-for-price details.`;
+}
 
-    window.open(whatsappLink(text), "_blank");
+function setupQuickTripEnquiry() {
+  const quickButton = document.getElementById("quickTripBtn");
+  const fields = [
+    document.getElementById("quickDestination"),
+    document.getElementById("quickTravelType"),
+    document.getElementById("quickTravellers"),
+  ].filter(Boolean);
+
+  if (!quickButton) return;
+
+  const updateQuickTripLink = () => {
+    quickButton.setAttribute("href", whatsappLink(buildQuickTripMessage()));
+  };
+
+  // Keep the WhatsApp URL updated while the customer types/selects.
+  fields.forEach((field) => {
+    field.addEventListener("input", updateQuickTripLink);
+    field.addEventListener("change", updateQuickTripLink);
   });
+
+  // Extra safety: update right before the user opens WhatsApp.
+  quickButton.addEventListener("click", updateQuickTripLink);
+  quickButton.addEventListener("touchstart", updateQuickTripLink, { passive: true });
+
+  updateQuickTripLink();
 }
 
 function setupEnquiryForm() {
@@ -321,3 +341,119 @@ setupQuickTripEnquiry();
 
 window.addEventListener("scroll", observeReveal);
 observeReveal();
+
+/* =========================================================
+   Popup enquiry form before WhatsApp for direct enquiry buttons
+   ========================================================= */
+function getInquiryContext(link) {
+  const packageCard = link.closest(".package-card");
+  const hajCard = link.closest(".haj-card");
+  const contactBox = link.closest(".contact-box");
+  const footer = link.closest("footer");
+  const bottomCta = link.closest(".bottom-cta");
+  const hajPanel = link.closest("#hajPanel");
+
+  let service = "General Travel Enquiry";
+  let packageName = "";
+  let intro = "I would like to enquire about a customised travel package.";
+
+  if (packageCard) {
+    const title = packageCard.querySelector("h3")?.textContent.trim() || "Tour Package";
+    packageName = title;
+    service = packageCard.dataset.type === "domestic" ? "Domestic Tour" : "International Tour";
+    intro = `I want details for ${title}.`;
+  } else if (hajCard) {
+    const title = hajCard.querySelector("h3")?.textContent.trim() || "Umrah Package";
+    packageName = title;
+    service = title.toLowerCase().includes("haj") ? "Haj Package" : "Umrah Package";
+    intro = `I want details for ${title}.`;
+  } else if (hajPanel) {
+    service = "Umrah Package";
+    packageName = link.textContent.toLowerCase().includes("haj") ? "Haj / Umrah Package" : "Umrah Package";
+    intro = "I want Haj or Umrah package details.";
+  } else if (contactBox || footer || bottomCta || link.classList.contains("btn-whatsapp")) {
+    service = "General Travel Enquiry";
+    packageName = "Customised Travel Package";
+    intro = "I would like to enquire about a customised travel package.";
+  }
+
+  return { service, packageName, intro };
+}
+
+function openInquiryModal(context = {}) {
+  const modal = document.getElementById("inquiryModal");
+  if (!modal) return;
+
+  const serviceField = document.getElementById("popupService");
+  const packageField = document.getElementById("popupPackage");
+  const messageField = document.getElementById("popupMessage");
+
+  if (serviceField) serviceField.value = context.service || "General Travel Enquiry";
+  if (packageField) packageField.value = context.packageName || "";
+  if (messageField) messageField.value = "";
+
+  modal.dataset.intro = context.intro || "I would like to enquire about a customised travel package.";
+  modal.classList.add("active");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+
+  setTimeout(() => document.getElementById("popupName")?.focus(), 80);
+}
+
+function closeInquiryModal() {
+  const modal = document.getElementById("inquiryModal");
+  if (!modal) return;
+
+  modal.classList.remove("active");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+}
+
+function setupInquiryModal() {
+  const modal = document.getElementById("inquiryModal");
+  const form = document.getElementById("popupInquiryForm");
+  if (!modal || !form) return;
+
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest('a[href*="wa.me"]');
+    if (!link) return;
+
+    // Quick Trip Enquiry already has customer input on the hero card, so keep it direct.
+    if (link.id === "quickTripBtn" || link.dataset.directWhatsapp === "true") return;
+
+    event.preventDefault();
+    openInquiryModal(getInquiryContext(link));
+  });
+
+  document.querySelectorAll("[data-close-inquiry]").forEach((item) => {
+    item.addEventListener("click", closeInquiryModal);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeInquiryModal();
+  });
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const intro = modal.dataset.intro || "I would like to enquire about a customised travel package.";
+    const name = document.getElementById("popupName")?.value.trim() || "";
+    const phone = document.getElementById("popupPhone")?.value.trim() || "";
+    const service = document.getElementById("popupService")?.value.trim() || "General Travel Enquiry";
+    const packageName = document.getElementById("popupPackage")?.value.trim() || "Not mentioned";
+    const travellers = document.getElementById("popupTravellers")?.value.trim() || "Not mentioned";
+    const month = document.getElementById("popupMonth")?.value.trim() || "Not mentioned";
+    const city = document.getElementById("popupCity")?.value.trim() || "Not mentioned";
+    const message = document.getElementById("popupMessage")?.value.trim() || "Not mentioned";
+
+    const greeting = service.includes("Haj") || service.includes("Umrah") ? "Assalamualaikum Design Tours and Travels," : "Hello Design Tours and Travels,";
+
+    const text = `${greeting}\n${intro}\n\nName: ${name}\nPhone: ${phone}\nEnquiry Type: ${service}\nPackage / Destination: ${packageName}\nNo. of travellers: ${travellers}\nPreferred month: ${month}\nDeparture city: ${city}\nMessage: ${message}\n\nPlease share package details and contact-for-pricing information.`;
+
+    window.open(whatsappLink(text), "_blank");
+    form.reset();
+    closeInquiryModal();
+  });
+}
+
+setupInquiryModal();
