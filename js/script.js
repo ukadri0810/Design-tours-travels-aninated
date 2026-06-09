@@ -5,41 +5,73 @@
 
 const WHATSAPP_NUMBER = "919405893383";
 
+function whatsappLink(message) {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
 const packages = [
   {
     type: "international",
     title: "Dubai Tour Package",
     img: "assets/dubai.jpg",
-    desc: "Sightseeing, shopping, family attractions and desert experience.",
+    desc: "Customised Dubai travel support for families, groups and leisure travellers.",
     places: ["Burj Khalifa", "Dubai Mall", "Desert Safari", "Marina Cruise", "Gold Souk"],
   },
   {
     type: "international",
     title: "Singapore Tour Package",
     img: "assets/singapore.jpg",
-    desc: "City attractions, family activities and modern sightseeing.",
+    desc: "Modern city attractions, family activities and sightseeing options.",
     places: ["Merlion Park", "Sentosa", "Universal Studios", "Gardens by the Bay", "Singapore Flyer"],
-  },
-  {
-    type: "international",
-    title: "Turkey Tour Package",
-    img: "assets/turkey.webp",
-    desc: "Historic locations, scenic views and cultural sightseeing.",
-    places: ["Istanbul", "Blue Mosque", "Hagia Sophia", "Bosphorus Cruise", "Cappadocia"],
   },
   {
     type: "international",
     title: "Malaysia Tour Package",
     img: "assets/malaysia.png",
-    desc: "Kuala Lumpur sightseeing and family-friendly attractions.",
+    desc: "Kuala Lumpur sightseeing and family-friendly travel assistance.",
     places: ["Petronas Towers", "Batu Caves", "Genting Highlands", "KL Tower", "Putrajaya"],
+  },
+  {
+    type: "international",
+    title: "Turkey Tour Package",
+    img: "assets/turkey.webp",
+    desc: "Historic locations, scenic views and cultural sightseeing support.",
+    places: ["Istanbul", "Blue Mosque", "Hagia Sophia", "Bosphorus Cruise", "Cappadocia"],
+  },
+  {
+    type: "international",
+    title: "Thailand Tour Package",
+    img: "https://images.unsplash.com/photo-1528181304800-259b08848526?w=1200&q=80&auto=format&fit=crop",
+    desc: "Popular Thailand packages for families, couples and groups.",
+    places: ["Bangkok", "Pattaya", "Phuket", "Krabi", "Coral Island"],
+  },
+  {
+    type: "international",
+    title: "Bali Tour Package",
+    img: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=80&auto=format&fit=crop",
+    desc: "Beautiful island travel planning with beaches, temples and scenic stays.",
+    places: ["Ubud", "Kuta", "Nusa Penida", "Tanah Lot", "Uluwatu"],
+  },
+  {
+    type: "international",
+    title: "Maldives Tour Package",
+    img: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1200&q=80&auto=format&fit=crop",
+    desc: "Resort, honeymoon and family island package assistance.",
+    places: ["Male", "Resort Islands", "Water Villa", "Beach Villa", "Water Sports"],
   },
   {
     type: "international",
     title: "Europe Tour Package",
     img: "assets/europe.jpg",
-    desc: "Famous cities, landmarks and scenic experiences.",
+    desc: "Famous cities, landmarks and scenic travel experiences.",
     places: ["Paris", "Switzerland", "Rome", "Venice", "Amsterdam"],
+  },
+  {
+    type: "international",
+    title: "Azerbaijan Tour Package",
+    img: "https://images.unsplash.com/photo-1600181982553-ce7eb807de4e?w=1200&q=80&auto=format&fit=crop",
+    desc: "Baku and nearby sightseeing options for customised international trips.",
+    places: ["Baku", "Nizami Street", "Flame Towers", "Gobustan", "Gabala"],
   },
   {
     type: "domestic",
@@ -69,18 +101,53 @@ const packages = [
     desc: "Mountains, valleys, snow points and adventure experiences.",
     places: ["Solang Valley", "Atal Tunnel", "Hadimba Temple", "Mall Road", "Rohtang"],
   },
+  {
+    type: "domestic",
+    title: "Rajasthan Tour Package",
+    img: "https://images.unsplash.com/photo-1599661046827-dacde6976549?w=1200&q=80&auto=format&fit=crop",
+    desc: "Royal palaces, desert experiences and heritage sightseeing.",
+    places: ["Jaipur", "Udaipur", "Jodhpur", "Jaisalmer", "Mount Abu"],
+  },
+  {
+    type: "domestic",
+    title: "Ladakh Tour Package",
+    img: "https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?w=1200&q=80&auto=format&fit=crop",
+    desc: "Scenic road trips, monasteries, lakes and mountain landscapes.",
+    places: ["Leh", "Nubra Valley", "Pangong Lake", "Khardung La", "Shanti Stupa"],
+  },
+  {
+    type: "domestic",
+    title: "Andaman Tour Package",
+    img: "https://images.unsplash.com/photo-1586500036706-41963de24d8b?w=1200&q=80&auto=format&fit=crop",
+    desc: "Island sightseeing, beaches and family holiday assistance.",
+    places: ["Port Blair", "Havelock", "Neil Island", "Cellular Jail", "Radhanagar Beach"],
+  },
+  {
+    type: "domestic",
+    title: "Himachal Tour Package",
+    img: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=1200&q=80&auto=format&fit=crop",
+    desc: "Hill station travel options for couples, families and groups.",
+    places: ["Shimla", "Manali", "Kullu", "Dharamshala", "Dalhousie"],
+  },
+  {
+    type: "domestic",
+    title: "Delhi Agra Tour Package",
+    img: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1200&q=80&auto=format&fit=crop",
+    desc: "Classic North India sightseeing with monuments and heritage places.",
+    places: ["Taj Mahal", "Agra Fort", "India Gate", "Red Fort", "Qutub Minar"],
+  },
 ];
 
-function renderPackages(filter = "all") {
+function renderPackages(filter = "international") {
   const slider = document.getElementById("packageSlider");
   if (!slider) return;
 
-  const visiblePackages = packages.filter((item) => filter === "all" || item.type === filter);
+  const visiblePackages = packages.filter((item) => item.type === filter);
 
   slider.innerHTML = visiblePackages
     .map((item) => {
       const placesHtml = item.places.map((place) => `<span>${place}</span>`).join("");
-      const whatsappText = encodeURIComponent(`Hello, I want ${item.title} details`);
+      const packageMessage = `Hello Design Tours and Travels, I want details for ${item.title}.\n\nPackage type: Customised Package\nNo. of travellers: \nPreferred travel month: \nDeparture city: \nHotel preference: \nBudget range: `;
 
       return `
         <article class="package-card" data-type="${item.type}">
@@ -105,7 +172,7 @@ function renderPackages(filter = "all") {
             <a
               class="btn btn-primary"
               target="_blank"
-              href="https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappText}"
+              href="${whatsappLink(packageMessage)}"
             >
               Get Package Details
             </a>
@@ -184,12 +251,12 @@ function setupLoader() {
   const loader = document.getElementById("loader");
 
   window.addEventListener("load", () => {
-    setTimeout(() => loader?.classList.add("hide"), 1800);
+    setTimeout(() => loader?.classList.add("hide"), 1450);
     observeReveal();
   });
 
   // Safety fallback for slow browsers or cached asset issues.
-  setTimeout(() => loader?.classList.add("hide"), 2300);
+  setTimeout(() => loader?.classList.add("hide"), 1800);
 }
 
 function setupEnquiryForm() {
@@ -207,12 +274,10 @@ function setupEnquiryForm() {
     const destination = document.getElementById("destination")?.value.trim() || "";
     const message = document.getElementById("message")?.value.trim() || "";
 
-    const text = encodeURIComponent(
-      `Hello, I want to enquire about a travel package.\n\nName: ${name}\nPhone: ${phone}\nService: ${service}\nDestination: ${destination}\nMessage: ${message}`
-    );
+    const text = `Hello Design Tours and Travels, I want to enquire about a customised travel package.\n\nName: ${name}\nPhone: ${phone}\nService needed: ${service}\nDestination: ${destination}\nNo. of travellers / message: ${message}\n\nPlease share package options and contact-for-price details.`;
 
     successMessage.style.display = "block";
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank");
+    window.open(whatsappLink(text), "_blank");
 
     form.reset();
     setTimeout(() => {
@@ -221,7 +286,7 @@ function setupEnquiryForm() {
   });
 }
 
-renderPackages();
+renderPackages("international");
 setupPackageFilters();
 setupModeButtons();
 setupMobileMenu();
