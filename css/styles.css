@@ -1442,3 +1442,80 @@ body.haj-mode .site-footer {
   display: none !important;
   content: none !important;
 }
+
+/* Final premium update: package filters, Umrah cards, logo polish */
+.haj-card-btn {
+  margin-top: 18px;
+  width: fit-content;
+  min-width: 142px;
+}
+
+.haj-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.haj-card p {
+  flex: 1;
+}
+
+.filter-row .filter-btn {
+  min-width: 145px;
+}
+
+/* Keep updated transparent logo clean in loader and header */
+.loader-logo,
+.brand img {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+.loader-card {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.loader-logo {
+  width: min(390px, 82vw) !important;
+  max-height: 122px !important;
+}
+
+.brand img {
+  width: 310px !important;
+  max-height: 96px !important;
+}
+
+@media (max-width: 980px) {
+  .brand img {
+    width: 250px !important;
+    max-height: 82px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .brand img {
+    width: 205px !important;
+    max-height: 76px !important;
+  }
+
+  .loader-logo {
+    width: min(310px, 82vw) !important;
+    max-height: 105px !important;
+  }
+
+  .filter-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .filter-row .filter-btn {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .haj-card-btn {
+    width: 100%;
+  }
+}
