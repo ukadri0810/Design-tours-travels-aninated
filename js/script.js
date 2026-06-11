@@ -52,6 +52,14 @@ const packages = [
     desc: "Beautiful island travel planning with beaches, temples and scenic stays.",
     places: ["Ubud", "Kuta", "Nusa Penida", "Tanah Lot", "Uluwatu"],
   },
+
+  {
+    type: "international",
+    title: "Vietnam Tour Package",
+    img: "https://images.unsplash.com/photo-1528127269322-539801943592?w=1200&q=80&auto=format&fit=crop",
+    desc: "Scenic landscapes, city tours, culture, food and family-friendly travel experiences.",
+    places: ["Hanoi", "Ho Chi Minh City", "Ha Long Bay", "Da Nang", "Hoi An"],
+  },
   {
     type: "international",
     title: "Maldives Tour Package",
