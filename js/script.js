@@ -55,7 +55,7 @@ const packages = [
   {
     type: "international",
     title: "Maldives Tour Package",
-    img: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1200&q=80&auto=format&fit=crop",
+    img: "assets/maldives.jpg",
     desc: "Resort, honeymoon and family island package assistance.",
     places: ["Male", "Resort Islands", "Water Villa", "Beach Villa", "Water Sports"],
   },
@@ -69,7 +69,7 @@ const packages = [
   {
     type: "international",
     title: "Azerbaijan Tour Package",
-    img: "https://images.unsplash.com/photo-1600181982553-ce7eb807de4e?w=1200&q=80&auto=format&fit=crop",
+    img: "assets/azerbaijan.jpg",
     desc: "Baku and nearby sightseeing options for customised international trips.",
     places: ["Baku", "Nizami Street", "Flame Towers", "Gobustan", "Gabala"],
   },
