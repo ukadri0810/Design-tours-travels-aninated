@@ -85,6 +85,16 @@ svg {
   font-size: 1rem;
 }
 
+
+.package-slogan {
+  margin: -4px 0 12px;
+  color: var(--gold);
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
 .section-head {
   margin-bottom: 34px;
 }
