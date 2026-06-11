@@ -104,7 +104,7 @@ const packages = [
   {
     type: "domestic",
     title: "Rajasthan Tour Package",
-    img: "https://images.unsplash.com/photo-1599661046827-dacde6976549?w=1200&q=80&auto=format&fit=crop",
+    img: "assets/rajasthan.webp",
     desc: "Royal palaces, desert experiences and heritage sightseeing.",
     places: ["Jaipur", "Udaipur", "Jodhpur", "Jaisalmer", "Mount Abu"],
   },
