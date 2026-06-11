@@ -56,7 +56,7 @@ const packages = [
   {
     type: "international",
     title: "Vietnam Tour Package",
-    img: "https://images.unsplash.com/photo-1528127269322-539801943592?w=1200&q=80&auto=format&fit=crop",
+    img: "assets/vietnam.jpg",
     desc: "Scenic landscapes, city tours, culture, food and family-friendly travel experiences.",
     places: ["Hanoi", "Ho Chi Minh City", "Ha Long Bay", "Da Nang", "Hoi An"],
   },
